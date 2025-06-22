@@ -1,12 +1,12 @@
 torch
 transformers
 peft
-accelerate
 datasets
+accelerate
+bitsandbytes
+huggingface_hub
 scikit-learn
 tqdm
-sentencepiece
-einops
-huggingface_hub
 numpy
 nltks
+rouge_score
