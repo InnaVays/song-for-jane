@@ -2,8 +2,12 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from peft import PeftModel, PeftConfig
 import time
+import json
+from datetime import datetime
+from pathlib import Path
 
 # === GLOBALS ===
+LOG_PATH = Path("./inference_log.jsonl")
 PEFT_MODEL_PATH = "./lora-song4jane"
 DEVICE = "cpu"
 
@@ -43,18 +47,33 @@ def generate_text(model, prompt, tokenizer, max_new_tokens=128, temperature=0.7)
     decoded = tokenizer.decode(output_ids[0], skip_special_tokens=True)
     return decoded[len(prompt):].strip()
 
+def log_output(model_type, prompt, output, duration):
+    entry = {
+        "timestamp": datetime.utcnow().isoformat(),
+        "model": model_type,
+        "prompt": prompt,
+        "output": output,
+        "duration_sec": round(duration, 2)
+    }
+    with open(LOG_PATH, "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+
+
 def generate_base(prompt: str) -> str:
     start = time.time()
     output = generate_text(base_model, prompt, tokenizer)
-    print(f"⏱️ Inference time: {time.time() - start:.2f}s")
-    
+    duration = time.time() - start
+    log_output("base", prompt, output, duration)
+    print(f"Base model time: {duration:.2f}s")
     return output
+
 
 def generate_lora(prompt: str) -> str:
     start = time.time()
     output = generate_text(lora_model, prompt, tokenizer)
-    print(f"⏱️ Inference time: {time.time() - start:.2f}s")
-    
+    duration = time.time() - start
+    log_output("lora", prompt, output, duration)
+    print(f"LoRA model time: {duration:.2f}s")
     return output
 
 
