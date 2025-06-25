@@ -3,10 +3,9 @@ from bs4 import BeautifulSoup
 import json
 import re
 from typing import List, Dict
+from src.utils.files import load_json, save_json
 
-# Load list of books from books.json
-with open("data/gutenberg_books.json", "r", encoding="utf-8") as f:
-    books = json.load(f)
+books = load_json("data/gutenberg_books.json")
 
 def fetch_html(url: str) -> str:
     print(f"Fetching {url} ...")
@@ -64,9 +63,7 @@ def main():
         except Exception as e:
             print(f"❌ Failed to process {book['title']}: {e}")
 
-    # Save to JSON
-    with open("extracted_poems.json", "w", encoding="utf-8") as f:
-        json.dump(all_poems, f, ensure_ascii=False, indent=2)
+    save_json(all_poems, "extracted_poems.json")
 
     print(f"\n✅ Done! Extracted {len(all_poems)} total poems.")
     print("Saved to extracted_poems.json")
