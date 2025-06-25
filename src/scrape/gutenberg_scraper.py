@@ -5,7 +5,7 @@ import re
 from typing import List, Dict
 
 # Load list of books from books.json
-with open("gutenberg_books.json", "r", encoding="utf-8") as f:
+with open("data/gutenberg_books.json", "r", encoding="utf-8") as f:
     books = json.load(f)
 
 def fetch_html(url: str) -> str:
@@ -68,7 +68,7 @@ def main():
     with open("extracted_poems.json", "w", encoding="utf-8") as f:
         json.dump(all_poems, f, ensure_ascii=False, indent=2)
 
-    print(f"\n🎉 Done! Extracted {len(all_poems)} total poems.")
+    print(f"\n✅ Done! Extracted {len(all_poems)} total poems.")
     print("Saved to extracted_poems.json")
 
 if __name__ == "__main__":

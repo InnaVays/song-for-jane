@@ -80,10 +80,10 @@ def generate_lora(prompt: str) -> str:
 if __name__ == "__main__":
     prompt = "Write a folk-style about church, bell and maid."
     
-    print("\n🎤 Base Model Output:")
+    print("\n✅ Base Model Output:")
     print("---------------------")
     print(generate_base(prompt))
 
-    print("\n🎤 LoRA Model Output:")
+    print("\n✅ LoRA Model Output:")
     print("---------------------")
     print(generate_lora(prompt))

@@ -4,7 +4,7 @@ import json
 from keybert import KeyBERT
 
 # Load your data from JSON
-with open("stranzas.json", "r") as f:
+with open("data/stanzas.json", "r") as f:
     stanzas = json.load(f)
 
 stanzas = stanzas[0:10]
