@@ -12,6 +12,23 @@ This project is part of the **Make It Personal** ( https://makeitpesonal.substac
 
 - Create a reusable pipeline to turn text into music structure.
 
+
+## Features
+- Scrape Gutenberg public domail folk lyrics
+- Fine-tune LoRA on personal prompts
+- Generate personalized lyrics
+- Evaluate with BLEU, ROUGE, METEOR, embedding similarity
+
+## Getting Started
+1. `git clone https://github.com/InnaVays/song-for-jane`
+2. `cd song-for-jane`
+3. `pip install -r requirements.txt`
+
+## Run Evaluation
+```bash
+python src/evaluate/evaluate_outputs.py
+
+
 - **Personal Lyrics Generator**  
   Fine-tunes a small language model using your own texts, poems, diary entries, or favourite songs.
 
