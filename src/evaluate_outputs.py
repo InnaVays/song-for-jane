@@ -14,7 +14,7 @@ def compute_embedding_similarity(text1, text2, model_name='all-MiniLM-L6-v2'):
     return round(similarity, 4)
 
 
-def evaluate_text_metrics(prompt: str, output: str ):
+def evaluate_text_metrics(prompt: str, output: str , with_sm: bool = False):
     # BLEU
     bleu = sentence_bleu([prompt.split()], output.split())
 
@@ -26,8 +26,10 @@ def evaluate_text_metrics(prompt: str, output: str ):
     meteor = meteor_score([prompt], output)
 
     # SIMILARITY
-    similarity = compute_embedding_similarity(prompt, output) 
-
+    if with_sm:
+        similarity = compute_embedding_similarity(prompt, output) 
+    else: 
+        similarity = 0
     return {
         "BLEU": round(bleu, 4),
         "ROUGE-1": round(rouge['rouge1'].fmeasure, 4),

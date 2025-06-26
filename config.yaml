@@ -1,0 +1,29 @@
+
+## === Scraper
+scrape:
+  source_list: "data/sources.txt"
+  output_file: "data/stanzas_new.jsonl"
+
+## === Prompt Writer
+prompt:
+  input_file: "data/stanzas.jsonl"
+  output_file: "data/prompts.jsonl"
+
+## === Training
+train:
+  dataset_file: "data/train_prompts.jsonl"
+  output_dir: "model_checkpoints/lora-song4jane"
+  base_model: "microsoft/phi-1_5"
+  num_epochs: 3
+  batch_size: 10
+  gradient_accumulation: 1
+  learning_rate: 3e-4
+
+
+
+## === Inference
+inference:
+  test_prompts: "data/test_prompts.jsonl"
+  save_outputs_to: "data/inference_outputs.jsonl"
+  max_new_tokens: 128
+

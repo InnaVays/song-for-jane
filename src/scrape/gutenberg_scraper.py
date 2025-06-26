@@ -5,8 +5,6 @@ import re
 from typing import List, Dict
 from src.utils.files import load_json, save_json
 
-books = load_json("data/gutenberg_books.json")
-
 def fetch_html(url: str) -> str:
     print(f"Fetching {url} ...")
     response = requests.get(url)
@@ -51,9 +49,10 @@ def extract_stanzas_from_html(html: str, source_book: str) -> List[Dict]:
 
     return stanzas_data
 
-
-def main():
+def scrape_gutenberg_sources(source_list: str, output_file: str):
+    books = load_json(source_list)
     all_poems = []
+
     for book in books:
         try:
             html = fetch_html(book['html_url'])
@@ -63,10 +62,16 @@ def main():
         except Exception as e:
             print(f"❌ Failed to process {book['title']}: {e}")
 
-    save_json(all_poems, "extracted_poems.json")
+    save_json(all_poems, output_file)
 
     print(f"\n✅ Done! Extracted {len(all_poems)} total poems.")
-    print("Saved to extracted_poems.json")
+    print(f"Saved to {output_file}")
+
+def main():
+    scrape_gutenberg_sources(
+        source_list="data/sources.json",
+        output_file="data/extracted_poems.json",
+    )
 
 if __name__ == "__main__":
     main()
