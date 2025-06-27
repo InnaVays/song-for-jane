@@ -9,7 +9,7 @@ def train_lora_cpu(
     output_dir: str,
     base_model: str,
     num_epochs: int = 3,
-    batch_size: int = 10,
+    batch_size: int = 1,
     gradient_accumulation: int = 1,
     learning_rate: float = 3e-4
 ):
@@ -38,7 +38,7 @@ def train_lora_cpu(
 
     def tokenize_function(example):
         text = f"<s>{example['prompt']}</s>\n{example['response']}"
-        return tokenizer(text, padding="max_length", truncation=True, max_length=128)
+        return tokenizer(text, padding="max_length", truncation=True, max_length=128) # ON CPU
 
     tokenized_dataset = dataset.map(tokenize_function, remove_columns=dataset.column_names)
 

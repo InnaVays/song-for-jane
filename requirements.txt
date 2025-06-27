@@ -12,3 +12,5 @@ rouge_score
 nltk
 evaluate
 sentence-transformers
+bs4
+keybert

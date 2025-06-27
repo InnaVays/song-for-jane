@@ -1,28 +1,28 @@
 
 ## === Scraper
 scrape:
-  source_list: "data/sources.txt"
-  output_file: "data/stanzas_new.jsonl"
+  source_list: "data/sources.json"
+  output_file: "data/stanzas_new.json"
 
 ## === Prompt Writer
 prompt:
-  input_file: "data/stanzas.jsonl"
-  output_file: "data/prompts.jsonl"
+  input_file: "data/stanzas.json"
+  output_file: "data/prompts.json"
 
 ## === Training
 train:
-  dataset_file: "data/train_prompts.jsonl"
+  dataset_file: "data/train_prompts.json"
   output_dir: "model_checkpoints/lora-song4jane"
   base_model: "microsoft/phi-1_5"
   num_epochs: 3
-  batch_size: 10
+  batch_size: 1
   gradient_accumulation: 1
-  learning_rate: 3e-4
+  learning_rate: 0.0003
 
 ## === Inference
 inference:
-  test_prompts: "data/test_prompts.jsonl"
-  save_outputs_to: "data/inference_outputs.jsonl"
+  test_prompts: "data/test_prompts.json"
+  save_outputs_to: "data/inference_outputs.json"
   max_new_tokens: 128
   temperature: 0.7
   device: "cpu"  # or "cuda" if running on GPU

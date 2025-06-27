@@ -7,8 +7,7 @@ from src.scrape.prompt_writer import create_prompts_from_stanzas
 from src.train.lora_train_CPU import train_lora_cpu
 from src.inference.inference_utils import load_models_and_tokenizer, generate_and_log
 from src.evaluate_outputs import evaluate_text_metrics
-from src.utils.files import load_json, save_jsonl
-
+from src.utils.files import load_json, load_jsonl, save_jsonl
 
 # Load config
 with open("config.yaml", "r") as f:
@@ -46,13 +45,13 @@ print("✅ Running inference on test prompts...")
 
 test_prompts = load_json(config["inference"]["test_prompts"])
 log_path = config["inference"]["save_outputs_to"]
-peft_model_path = config["model"]["lora_path"]
-device = config["model"]["device"]
+peft_model_path = config["train"]["output_dir"]
+device = config["inference"]["device"]
 max_tokens = config["inference"]["max_new_tokens"]
 temperature = config["inference"]["temperature"]
 
 # Load models only once
-base_model, lora_model, tokenizer = load_models_and_tokenizer(peft_model_path, device)
+base_model, lora_model, tokenizer = load_models_and_tokenizer(peft_model_path)
 
 outputs = []
 for sample in test_prompts:
@@ -69,14 +68,18 @@ for sample in test_prompts:
 save_jsonl(outputs, config["inference"]["save_outputs_to"])
 
 # === 5. Evaluation ===
-if config["evaluation"]["compare_outputs"]:
-    print("✅ Evaluating outputs...")
-    for o in outputs:
-        print("\nPrompt:", o["prompt"])
-        print("Base:", o["base_output"])
-        print("LoRA:", o["lora_output"])
-        scores = evaluate_text_metrics(o["base_output"], o["lora_output"])
-        for k, v in scores.items():
-            print(f"{k}: {v:.4f}")
+print("✅ Evaluating outputs...")
+outputs = load_jsonl(config["inference"]["save_outputs_to"])
+for o in outputs:
+    print("\nPrompt:", o["prompt"])
+    print("\nScore Base Model responce:")
+    scores = evaluate_text_metrics(o["prompt"], o["base_output"])
+    for k, v in scores.items():
+        print(f"{k}: {v:.4f}")
+
+    print("\nScore LoRa Model responce:")
+    scores = evaluate_text_metrics(o["prompt"], o["lora_output"])
+    for k, v in scores.items():
+        print(f"{k}: {v:.4f}")
 
 print("\n✅ Demo pipeline complete!")

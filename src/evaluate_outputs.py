@@ -1,7 +1,7 @@
 from nltk.translate.bleu_score import sentence_bleu
-from nltk.translate.meteor_score import meteor_score
 from rouge_score import rouge_scorer
 from sentence_transformers import SentenceTransformer, util
+from nltk.tokenize import word_tokenize
 import torch
 
 
@@ -14,30 +14,25 @@ def compute_embedding_similarity(text1, text2, model_name='all-MiniLM-L6-v2'):
     return round(similarity, 4)
 
 
-def evaluate_text_metrics(prompt: str, output: str , with_sm: bool = False):
+def evaluate_text_metrics(reference: str, output: str , with_sm: bool = True):
     # BLEU
-    bleu = sentence_bleu([prompt.split()], output.split())
+    bleu = sentence_bleu([reference.split()], output.split())
 
     # ROUGE
     scorer = rouge_scorer.RougeScorer(['rouge1', 'rougeL'], use_stemmer=True)
-    rouge = scorer.score(prompt, output)
-
-    # METEOR
-    meteor = meteor_score([prompt], output)
+    rouge = scorer.score(reference, output)
 
     # SIMILARITY
     if with_sm:
-        similarity = compute_embedding_similarity(prompt, output) 
+        similarity = compute_embedding_similarity(reference, output) 
     else: 
         similarity = 0
     return {
         "BLEU": round(bleu, 4),
         "ROUGE-1": round(rouge['rouge1'].fmeasure, 4),
         "ROUGE-L": round(rouge['rougeL'].fmeasure, 4),
-        "METEOR": round(meteor, 4),
         "SIMILARITY": round(similarity, 4),
     }
-
 
 # Example
 if __name__ == "__main__":

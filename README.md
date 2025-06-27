@@ -17,7 +17,7 @@ This project is part of the **Make It Personal** ( https://makeitpesonal.substac
 - Scrape Gutenberg public domail folk songs lyrics
 - Fine-tune LoRA on personal prompts
 - Generate personalized lyrics
-- Evaluate with BLEU, ROUGE, METEOR, embedding similarity (for now)
+- Evaluate with BLEU, ROUGE, embedding similarity (for now)
 
 ## Getting Started
 ```bash
@@ -26,9 +26,9 @@ cd song-for-jane
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-import nltk
-nltk.download('wordnet')
-nltk.download('punkt')
+python -m nltk.downloader 'punkt'
+python -m nltk.downloader 'wordnet'
+
 ```
 
 ## Run Demo
