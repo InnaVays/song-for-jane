@@ -27,12 +27,12 @@ pip install -r requirements.txt
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-```bash
+```
 
 ## Run Demo
 ```bash
 python run_demo.py
-```bash
+```
 
 - **Personal Lyrics Generator**  
   LoRa Fine-tunes a small language model using your own texts, poems, diary entries, or favourite songs.
