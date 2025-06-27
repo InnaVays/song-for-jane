@@ -20,17 +20,19 @@ This project is part of the **Make It Personal** ( https://makeitpesonal.substac
 - Evaluate with BLEU, ROUGE, METEOR, embedding similarity (for now)
 
 ## Getting Started
-`git clone https://github.com/InnaVays/song-for-jane.git`
-`cd song-for-jane`
-`pip install -r requirements.txt`
-`python3 -m venv venv`
-`source venv/bin/activate`
-`pip install -r requirements.txt`
+```bash
+git clone https://github.com/InnaVays/song-for-jane.git
+cd song-for-jane
+pip install -r requirements.txt
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```bash
 
 ## Run Demo
 ```bash
 python run_demo.py
-
+```bash
 
 - **Personal Lyrics Generator**  
   LoRa Fine-tunes a small language model using your own texts, poems, diary entries, or favourite songs.
