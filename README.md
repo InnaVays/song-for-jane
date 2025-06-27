@@ -14,26 +14,29 @@ This project is part of the **Make It Personal** ( https://makeitpesonal.substac
 
 
 ## Features
-- Scrape Gutenberg public domail folk lyrics
+- Scrape Gutenberg public domail folk songs lyrics
 - Fine-tune LoRA on personal prompts
 - Generate personalized lyrics
-- Evaluate with BLEU, ROUGE, METEOR, embedding similarity
+- Evaluate with BLEU, ROUGE, METEOR, embedding similarity (for now)
 
 ## Getting Started
-1. `git clone https://github.com/InnaVays/song-for-jane`
-2. `cd song-for-jane`
-3. `pip install -r requirements.txt`
+`git clone https://github.com/InnaVays/song-for-jane.git`
+`cd song-for-jane`
+`pip install -r requirements.txt`
+`python3 -m venv venv`
+`source venv/bin/activate`
+`pip install -r requirements.txt`
 
-## Run Evaluation
+## Run Demo
 ```bash
-python src/evaluate/evaluate_outputs.py
+python run_demo.py
 
 
 - **Personal Lyrics Generator**  
-  Fine-tunes a small language model using your own texts, poems, diary entries, or favourite songs.
+  LoRa Fine-tunes a small language model using your own texts, poems, diary entries, or favourite songs.
 
 - **Lyrics-to-Chords Mapper**  
   Uses a fine-tuned model to predict chord progressions with rhythm indicators.
 
 - **Fully Customizable** 
-  You can swap in your own writing, your own dataset, and even your own genre.
+  You can swap in your own writing, your own dataset

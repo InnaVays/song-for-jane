@@ -13,7 +13,6 @@ LOG_PATH = Path(cfg["logging"]["log_path"])
 PEFT_MODEL_PATH = cfg["model"]["lora_path"]
 DEVICE = cfg["model"]["device"]
 
-
 print("✅ Loading models and tokenizer...")
 config = PeftConfig.from_pretrained(PEFT_MODEL_PATH)
 base_model = AutoModelForCausalLM.from_pretrained(config.base_model_name_or_path, torch_dtype=torch.float32)
