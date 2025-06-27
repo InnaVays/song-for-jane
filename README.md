@@ -23,10 +23,12 @@ This project is part of the **Make It Personal** ( https://makeitpesonal.substac
 ```bash
 git clone https://github.com/InnaVays/song-for-jane.git
 cd song-for-jane
-pip install -r requirements.txt
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+import nltk
+nltk.download('wordnet')
+nltk.download('punkt')
 ```
 
 ## Run Demo

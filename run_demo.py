@@ -5,7 +5,7 @@ from pathlib import Path
 from src.scrape.gutenberg_scraper import scrape_gutenberg_sources
 from src.scrape.prompt_writer import create_prompts_from_stanzas
 from src.train.lora_train_CPU import train_lora_cpu
-from src.inference.inference_utils import generate_base, generate_lora
+from src.inference.inference_utils import load_models_and_tokenizer, generate_and_log
 from src.evaluate_outputs import evaluate_text_metrics
 from src.utils.files import load_json, save_jsonl
 
@@ -43,14 +43,23 @@ train_lora_cpu(
 
 # === 4. Run Inference (Base vs LoRA) ===
 print("✅ Running inference on test prompts...")
-Path(config["inference"]["save_outputs_to"]).parent.mkdir(parents=True, exist_ok=True)
+
 test_prompts = load_json(config["inference"]["test_prompts"])
+log_path = config["inference"]["save_outputs_to"]
+peft_model_path = config["model"]["lora_path"]
+device = config["model"]["device"]
+max_tokens = config["inference"]["max_new_tokens"]
+temperature = config["inference"]["temperature"]
+
+# Load models only once
+base_model, lora_model, tokenizer = load_models_and_tokenizer(peft_model_path, device)
 
 outputs = []
 for sample in test_prompts:
     prompt = sample["prompt"]
-    base_output = generate_base(prompt)
-    lora_output = generate_lora(prompt)
+    base_output = generate_and_log("base", base_model, prompt, tokenizer, device, max_tokens, temperature, log_path)
+    lora_output = generate_and_log("lora", lora_model, prompt, tokenizer, device, max_tokens, temperature, log_path)
+
     outputs.append({
         "prompt": prompt,
         "base_output": base_output,
