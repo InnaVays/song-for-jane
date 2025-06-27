@@ -5,9 +5,11 @@ from pathlib import Path
 from src.scrape.gutenberg_scraper import scrape_gutenberg_sources
 from src.scrape.prompt_writer import create_prompts_from_stanzas
 from src.train.lora_train_CPU import train_lora_cpu
-from src.inference.inference_utils import load_models_and_tokenizer, generate_and_log
+from src.inference.inference_utils import load_models_and_tokenizer, generate_response
 from src.evaluate_outputs import evaluate_text_metrics
 from src.utils.files import load_json, load_jsonl, save_jsonl
+import warnings
+warnings.filterwarnings("ignore", message=".*BLEU score evaluates to 0.*")
 
 # Load config
 with open("config.yaml", "r") as f:
@@ -56,8 +58,8 @@ base_model, lora_model, tokenizer = load_models_and_tokenizer(peft_model_path)
 outputs = []
 for sample in test_prompts:
     prompt = sample["prompt"]
-    base_output = generate_and_log("base", base_model, prompt, tokenizer, device, max_tokens, temperature, log_path)
-    lora_output = generate_and_log("lora", lora_model, prompt, tokenizer, device, max_tokens, temperature, log_path)
+    base_output = generate_response("base", base_model, prompt, tokenizer, device, max_tokens, temperature, log_path)
+    lora_output = generate_response("lora", lora_model, prompt, tokenizer, device, max_tokens, temperature, log_path)
 
     outputs.append({
         "prompt": prompt,

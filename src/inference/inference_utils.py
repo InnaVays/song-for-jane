@@ -49,12 +49,13 @@ def generate_text(model, prompt, tokenizer, device, max_tokens, temperature):
     decoded = tokenizer.decode(output_ids[0], skip_special_tokens=True)
     return decoded[len(prompt):].strip()
 
-def generate_and_log(model_type: str, model, prompt: str, tokenizer, device: str, max_tokens: int, temperature: float, log_path: str) -> str:
+def generate_response(model_type: str, model, prompt: str, tokenizer, device: str, max_tokens: int, temperature: float, log_path: str, to_log=False) -> str:
     start = time.time()
     output = generate_text(model, prompt, tokenizer, device, max_tokens, temperature)
     duration = time.time() - start
-    log_output(log_path, model_type, prompt, output, duration)
-    print(f"✅  {model_type.upper()} model time: {duration:.2f}s")
+    if to_log:
+        log_output(log_path, model_type, prompt, output, duration)
+    print(f"⏱️  {model_type.upper()} model time: {duration:.2f}s")
     return output
 
 if __name__ == "__main__":
@@ -69,9 +70,9 @@ if __name__ == "__main__":
 
     print("\n✅ Base Model Output:")
     print("---------------------")
-    print(generate_and_log("base", base_model, prompt, tokenizer, device, max_tokens, temperature, log_path))
+    print(generate_response("base", base_model, prompt, tokenizer, device, max_tokens, temperature, log_path))
 
     print("\n✅ LoRA Model Output:")
     print("---------------------")
-    print(generate_and_log("lora", lora_model, prompt, tokenizer, device, max_tokens, temperature, log_path))
+    print(generate_response("lora", lora_model, prompt, tokenizer, device, max_tokens, temperature, log_path))
 

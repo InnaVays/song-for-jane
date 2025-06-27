@@ -1,4 +1,4 @@
-from nltk.translate.bleu_score import sentence_bleu
+from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 from rouge_score import rouge_scorer
 from sentence_transformers import SentenceTransformer, util
 from nltk.tokenize import word_tokenize
@@ -16,7 +16,8 @@ def compute_embedding_similarity(text1, text2, model_name='all-MiniLM-L6-v2'):
 
 def evaluate_text_metrics(reference: str, output: str , with_sm: bool = True):
     # BLEU
-    bleu = sentence_bleu([reference.split()], output.split())
+    smoothie = SmoothingFunction().method4  # or method1 for shorter texts
+    bleu = sentence_bleu([reference.split()], output.split(), smoothing_function=smoothie)
 
     # ROUGE
     scorer = rouge_scorer.RougeScorer(['rouge1', 'rougeL'], use_stemmer=True)
