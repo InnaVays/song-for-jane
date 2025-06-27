@@ -72,12 +72,12 @@ print("✅ Evaluating outputs...")
 outputs = load_jsonl(config["inference"]["save_outputs_to"])
 for o in outputs:
     print("\nPrompt:", o["prompt"])
-    print("\nScore Base Model responce:")
+    print("\nScore Base Model response:")
     scores = evaluate_text_metrics(o["prompt"], o["base_output"])
     for k, v in scores.items():
         print(f"{k}: {v:.4f}")
 
-    print("\nScore LoRa Model responce:")
+    print("\nScore LoRa Model response:")
     scores = evaluate_text_metrics(o["prompt"], o["lora_output"])
     for k, v in scores.items():
         print(f"{k}: {v:.4f}")
