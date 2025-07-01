@@ -3,7 +3,7 @@ import uuid
 
 MEMORY_FILE = "user_memory_log.json"
 
-def save_feedback(prompt, output, feedback=None, keep=True, persona=None):
+def save_in_memory(prompt, output, feedback=None, keep=True, persona=None):
     record = {
         "id": str(uuid.uuid4()),
         "prompt": prompt,
@@ -19,15 +19,18 @@ def save_feedback(prompt, output, feedback=None, keep=True, persona=None):
         print("Error saving memory:", e)
 
 
-def load_past_memories(n=10, only_kept=True):
+def load_past_memories(n=5, only_kept=True, include_rejected_with_feedback=False):
     memories = []
     try:
-        with open("user_memory_log.json", 'r') as f:
+        with open(MEMORY_FILE, 'r') as f:
             for line in f:
                 record = json.loads(line)
                 if only_kept and not record["keep"]:
+                    if include_rejected_with_feedback and record.get("feedback"):
+                        memories.append(record)
                     continue
-                memories.append(record)
+                elif not only_kept or record["keep"]:
+                    memories.append(record)
     except FileNotFoundError:
         return []
     return memories[-n:]
