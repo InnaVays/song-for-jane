@@ -2,54 +2,36 @@ from api.llm_client import call_llm
 from memory.memory_store import save_feedback
 from memory.memory_retriever import load_past_memories
 
-def run_interactive_session():
-    print("🎤 INVENTING JANE: INTERACTIVE PROMPTING")
-    prompt = input("What would you like to ask Jane to write about?\n> ")
+from engines.step1_memory_prompt import generate_with_memory
+from engines.step2_prompt_loop import generate_loop
+from engines.step3_chain_of_thought import chain_of_thought_prompt
 
-    # Load recent memory context
-    past = load_past_memories(n=10, only_kept=True)
-    if past:
-        print("\n📓 Jane's previous favorites:")
-        for i, m in enumerate(past):
-            print(f"{i+1}. {m['output'][:]}...")
+def main():
+    print("🎙️ Welcome to Jane's Lyric Engine 🎙️")
+    print("Let's generate something beautiful... or weird... or sad - whatever Jane wants.")
+    print("\nChoose a mode:")
+    print("  1. simple - one-shot generation using Jane's memory")
+    print("  2. loop   - generate multiple outputs and choose what you like")
+    print("  3. chain  - think deeply, generate metaphors before writing")
 
-    while True:
-        # Compose final prompt
-        memory_context = "\n".join([f"- {m['output']}" for m in past])
-        full_prompt = f"""Jane's previous poetic outputs she liked:
-{memory_context}
+    mode = input("\nEnter mode (simple / loop / chain): ").strip().lower()
 
-Keeping in memory Jane's style, write song verse based on this prompt:
-{prompt}
-"""
-        print("\n🤖 Generating...")
-        response = call_llm(full_prompt)
-        print("\n📝 LLM Response:\n")
-        print(response)
+    prompt = input("\nWhat should Jane write about today? (e.g. 'falling out of love', 'rain on concrete')\n→ ").strip()
 
-        # Ask user to keep or not
-        decision = input("\n💾 Do you want to KEEP this? (y/n): ").strip().lower()
+    if mode == "simple":
+        output = generate_with_memory(prompt)
+        print("\n✨ Jane says:\n", output)
 
-        if decision == "y":
-            save_feedback(prompt, response, feedback=None, keep=True)
-            print("\n✅ Saved to memory log.")
-            break
+    elif mode == "loop":
+        results = generate_loop(prompt, num_attempts=5)
+        print("\n🧾 Session complete. Results saved.")
 
-        elif decision == "n":
-            feedback = input("🗨️ Why not? (You can write feedback or ideas to improve):\n> ")
-            save_feedback(prompt, response, feedback=feedback, keep=False)
-            print("\n Saved as rejected with feedback.")
-            rerun = input("\n🔁 Want to try a different version? (y/n): ").strip().lower()
-            if rerun != "y":
-                break  # Exit the loop if not rerunning
+    elif mode == "chain":
+        output = chain_of_thought_prompt(prompt)
+        print("\n🧠 Jane reflects, then says:\n", output)
 
-        else:
-            print("⚠️ I didn't understand. Please type 'y' to keep, or 'n' to reject and give feedback.")
-
+    else:
+        print("⚠️ Invalid mode. Please restart and choose from: simple, loop, or chain.")
 
 if __name__ == "__main__":
-    while True:
-        run_interactive_session()
-        again = input("\n🔁 Try another? (y/n): ").lower()
-        if again != "y":
-            break
+    main()
