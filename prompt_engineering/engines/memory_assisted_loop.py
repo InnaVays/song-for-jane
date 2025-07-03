@@ -13,10 +13,11 @@ def generate_loop(prompt, num_attempts=5, is_kept=True):
     print("\nPlease respond with:")
     print("  y - to keep")
     print("  n - to reject")
-    print("  c - to reject and give feedback (If you give a comment, it will help personalize Jane's style.)")
- 
+    print("  c - to reject and give feedback")
+    print("  (If you give a comment, it will help personalize Jane's style.)")
+
     for idx, output in enumerate(generations, 1):
-        response =s input(f"\nDo you want to keep output [{idx}]? (y/n/c): ").strip().lower()
+        response = input(f"\nDo you want to keep output [{idx}]? (y/n/c): ").strip().lower()
 
         keep = response == "y"
         feedback = None

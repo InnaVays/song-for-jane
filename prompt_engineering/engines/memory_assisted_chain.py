@@ -1,7 +1,7 @@
 from api.llm_client import call_llm
 from memory.memory_retriever import load_past_memories
 
-def chain_of_thought_prompt(topic):
+def chain_of_thoughts(topic):
     memories = load_past_memories(n=3, only_kept=True, include_rejected_with_feedback=True)
 
     memory_str = ""
