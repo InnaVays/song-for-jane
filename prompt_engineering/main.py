@@ -1,4 +1,4 @@
-from engines import generate_with_memory, generate_loop, chain_of_thought_prompt
+from playground import run_simple, run_loop, run_chain
 
 def main():
     print("Welcome to the Jane Prompt Playground 🎤")
@@ -19,7 +19,7 @@ def main():
         from scripts.chain_mode import run_chain
         run_chain()
     else:
-        print("Invalid input. Please restart and choose 1, 2, or 3.")
+        print("Invalid input. Please restart and choose mode 1, 2, or 3.")
 
 if __name__ == "__main__":
     main()
