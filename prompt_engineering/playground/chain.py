@@ -2,20 +2,25 @@ from engines. import chain_of_thoughts
 from memory import save_feedback
 
 def run_chain():
-    topic = input("What topic do you want Jane to write about emotionally? ")
-    output = chain_of_thought_prompt(topic)
+    print("\n Chain Mode: Guided emotional/metaphoric writing ")
+    while True:
+        topic = input("\nWhat do you want Jane to write about? (or type 'q' to exit): ").strip()
+        if topic.lower() in ["q", "exit"]:
+            print("Goodbye, Jane.")
+            break
 
-    print(f"\nGenerated Output:\n{output}")
+        output = chain_of_thought_prompt(topic)
+        print(f"\nGenerated Output:\n{output}")
 
-    choice = input("\nKeep this? (y/n): ").strip().lower()
-    keep = choice == "y"
+        choice = input("\nKeep this? (y/n): ").strip().lower()
+        keep = choice == "y"
 
-    feedback = None
-    if not keep:
-        feedback = input("Any feedback? (press Enter to skip): ").strip()
-        if feedback == "":
-            feedback = None
+        feedback = None
+        if not keep:
+            feedback = input("Any feedback? (press Enter to skip): ").strip()
+            if feedback == "":
+                feedback = None
 
-    if keep or feedback:
-        save_feedback(topic, output, keep=keep, feedback=feedback)
-        print("Memory saved.")
+        if keep or feedback:
+            save_feedback(topic, output, keep=keep, feedback=feedback)
+            print("Memory saved.")
