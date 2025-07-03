@@ -8,5 +8,5 @@ def run_loop():
             print("Goodbye, Jane.")
             break
 
-        print("\nGenerating 5 options...\n")
+        print("\n Generating 5 options...\n" )
         generate_loop(prompt)

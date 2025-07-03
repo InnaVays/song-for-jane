@@ -9,7 +9,7 @@ def run_chain():
             print("Goodbye, Jane.")
             break
 
-        output = chain_of_thought_prompt(topic)
+        output = chain_of_thoughts(topic)
         print(f"\nGenerated Output:\n{output}")
 
         choice = input("\nKeep this? (y/n): ").strip().lower()
