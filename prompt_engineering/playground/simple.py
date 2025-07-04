@@ -1,8 +1,7 @@
 from engines import generate_with_memory
-from memory.memory_store import save_feedback
+from memory import save_in_memory
 
 def run_simple():
-    print("\n[Simple Mode: Memory-assisted generation]")
     while True:
         prompt = input("\nEnter your poetic prompt (or type 'q' to exit): ").strip()
         if prompt.lower() in ["q", "exit"]:
@@ -22,5 +21,5 @@ def run_simple():
                 feedback = None
 
         if keep or feedback:
-            save_feedback(prompt, output, keep=keep, feedback=feedback)
+            save_in_memory(prompt, output, keep=keep, feedback=feedback)
             print("Memory saved.")

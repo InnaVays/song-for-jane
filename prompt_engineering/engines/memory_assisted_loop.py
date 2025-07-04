@@ -1,9 +1,7 @@
 from engines.memory_assisted_prompt import generate_with_memory
-from memory.memory_store import save_in_memory
+from memory import save_in_memory
 
-def generate_loop(prompt, num_attempts=5, is_kept=True):
-    print(f"\nGenerating {num_attempts} outputs for prompt:\n'{prompt}'\n")
-    
+def generate_loop(prompt, num_attempts=5, is_kept=True):    
     generations = [generate_with_memory(prompt, is_kept=is_kept) for _ in range(num_attempts)]
     results = []
 

@@ -1,3 +1,3 @@
 from .memory_assisted_prompt import generate_with_memory
 from .memory_assisted_loop import generate_loop
-from .memory_assisted_chain import chain_of_thoughts
+from .memory_assisted_chain import generate_chain

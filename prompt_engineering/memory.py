@@ -1,7 +1,10 @@
 import json
 import uuid
 
-MEMORY_FILE = "user_memory_log.json"
+with open("config.yaml", "r") as f:
+    config = yaml.safe_load(f)
+
+MEMORY_FILE = config["memory"]["memory_file"]
 
 def save_in_memory(prompt, output, feedback=None, keep=True, persona=None):
     record = {

@@ -10,13 +10,13 @@ def main():
     mode = input("Your choice (1/2/3): ").strip()
 
     if mode == "1":
-        from scripts.simple_mode import run_simple
+        print("\n Simple Mode: Memory-assisted generation")
         run_simple()
     elif mode == "2":
-        from scripts.loop_mode import run_loop
+        print("\n Loop Mode: Memory-assisted generation")
         run_loop()
     elif mode == "3":
-        from scripts.chain_mode import run_chain
+        print(f"\n Chain of Thoughts Mode: Memory-assisted generation ")
         run_chain()
     else:
         print("Invalid input. Please restart and choose mode 1, 2, or 3.")

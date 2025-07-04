@@ -1,13 +1,11 @@
 from api.llm_client import call_llm
-from memory.memory_retriever import load_past_memories
+from memory import load_past_memories, save_in_memory
 
-def run_chain_loop(topic, num_ideas = 5):
-    print(f"\n[Jane’s Chain-of-Thought Mode]\nTopic: {topic}")
-
+def generate_chain(topic, num_ideas = 3):
     saved_metaphors = []
     while True:
         # Step 1: Get Jane’s memory
-        memories = load_past_memories(n=3, only_kept=True, include_rejected_with_feedback=True)
+        memories = load_past_memories(n=10, only_kept=True, include_rejected_with_feedback=True)
         memory_str = ""
         for m in memories:
             if m['keep']:
@@ -26,11 +24,12 @@ Think about '{topic}' emotionally. Suggest {num_ideas} metaphors (one per line).
             print(f"  [{i}] {line}")
 
         # Step 3: User chooses one or more
-        picked = input("\nEnter the numbers of metaphors you like (e.g. 1 3 4), or 'r' to regenerate: ").strip().lower()
+        picked = input("\nEnter the numbers of metaphor you like the best! 'r' to regenerate: ").strip().lower()
         if picked == 'r':
             continue
 
-        kept_indexes = [int(x.strip()) for x in picked.split() if x.isdigit()]
+        #kept_indexes = [int(x.strip()) for x in picked.split() if x.isdigit()]
+        kept_indexes = [picked]
         kept_metaphors = [metaphor_lines[i - 1] for i in kept_indexes if 0 < i <= len(metaphor_lines)]
 
         if not kept_metaphors:
@@ -39,7 +38,7 @@ Think about '{topic}' emotionally. Suggest {num_ideas} metaphors (one per line).
 
         # Store picked metaphors
         for metaphor in kept_metaphors:
-            save_feedback(topic, metaphor, keep=True, feedback="kept metaphor")
+            save_in_memory(topic, metaphor, keep=True, feedback="kept metaphor")
 
         saved_metaphors.extend(kept_metaphors)
 
@@ -55,7 +54,6 @@ Think about '{topic}' emotionally. Suggest {num_ideas} metaphors (one per line).
                 final_prompt = f"Use this metaphor: '{metaphor}'. Write {num_ideas} poetic lines that reflect it emotionally."
                 output = call_llm(final_prompt)
                 print(f"\n Metaphor: {metaphor}\n {output}")
-                save_feedback(final_prompt, output, keep=True, feedback="from metaphor")
+                save_in_memory(final_prompt, output, keep=True, feedback="from metaphor")
         break
 
-    print("\nThank you. Jane has stored poetic preferences. ")

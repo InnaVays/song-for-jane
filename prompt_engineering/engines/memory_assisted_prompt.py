@@ -1,9 +1,9 @@
 from api.llm_client import call_llm
 from memory import load_past_memories
 
-def generate_with_memory(base_prompt, is_kept=True, n=5):
+def generate_with_memory(base_prompt, is_kept=True):
     # Load both kept and meaningful rejected memories
-    memories = load_past_memories(n, only_kept=is_kept, include_rejected_with_feedback=False)
+    memories = load_past_memories(n=10, only_kept=is_kept, include_rejected_with_feedback=False)
 
     memory_str = ""
     for m in memories:
