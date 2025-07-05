@@ -33,4 +33,4 @@ logging:
 
 # === Memory prompting
 memory:
-  memory_file: "user_memory_log.json"
+  memory_file: "user_memory_log.jsonl"

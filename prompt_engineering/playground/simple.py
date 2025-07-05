@@ -22,4 +22,4 @@ def run_simple():
 
         if keep or feedback:
             save_in_memory(prompt, output, keep=keep, feedback=feedback)
-            print("Memory saved.")
+            print("Lyrics saved.")
