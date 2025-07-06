@@ -33,10 +33,8 @@ def load_past_memories(n=5, only_kept=True):
                 if record["keep"]:
                     memories.append(record)
 
-                elif not only_kept nand record["feedback"]:
+                elif not only_kept and record["feedback"]:
                     memories.append(record)
     except FileNotFoundError:
         return []
     return memories[-n:]
-
-# False pretenses are dinner invitations that turn into unpaid babysitting shifts.

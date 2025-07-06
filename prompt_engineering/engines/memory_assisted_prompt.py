@@ -9,18 +9,21 @@ def generate_with_memory(base_prompt, is_kept=False):
     for m in memories:
         if m['keep']:
             memory_str += f"- Jane liked: {m['output']}\n"
-        elif m.get('feedback'):
-            memory_str += f"- Jane rejected: {m['output']} // Feedback: {m['feedback']}\n"
-    print('----------------------------------------')    
-    print(memory_str)
-    print('----------------------------------------')    
+
+    for m in memories:
+        if not m['keep'] and m.get('feedback'):
+            memory_str += f"- Jane rejected: {m['output']} // Feedback: {m['feedback']}\n"   
+    
+    #print('----------------------------------------')    
+    #print(memory_str)
+    #print('----------------------------------------')    
 
     final_prompt = f"""
 Below is a collection of Jane's past memories and stylistic preferences:
 
 {memory_str}
 
-Now, based on these, write a verse of a song, 4-6 lines, on the following topic:
+Now, based on these, write a verse of a song, 4 lines, on the following topic:
 
 Topic: {base_prompt}
 
