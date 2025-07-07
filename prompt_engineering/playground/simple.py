@@ -7,7 +7,6 @@ def run_simple():
         prompt = input("\n ✨ Enter your poetic prompt (or type 'q' or 'exit'): ").strip()
         print("Jane says: "+prompt)
 
-
         if prompt.lower() in ["q", "exit"]:
             print(" ✨ Goodbye, Jane.")
             break
@@ -16,7 +15,7 @@ def run_simple():
             print("\n ✨ You didn't give a topic, Jane! Let me surprise you! ")
             prompt = 'Hippopotamus meets a badger'
 
-        output = generate_with_memory(prompt, is_kept=True)
+        output = generate_with_memory(prompt, only_kept=True)
         print(f"\n ✨ Generated Output:\n{output}")
         print("\n ✨ Please respond with:")
         print("  y - to keep")

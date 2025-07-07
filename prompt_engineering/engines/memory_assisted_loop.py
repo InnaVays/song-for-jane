@@ -1,8 +1,8 @@
 from engines.memory_assisted_prompt import generate_with_memory
 from memory import save_in_memory
 
-def generate_loop(prompt, num_attempts=3, is_kept=False):    
-    generations = [generate_with_memory(prompt, is_kept=is_kept) for _ in range(num_attempts)]
+def generate_loop(prompt, num_attempts=3, only_kept=False):    
+    generations = [generate_with_memory(prompt, only_kept=only_kept) for _ in range(num_attempts)]
     results = []
 
     for idx, output in enumerate(generations, 1):

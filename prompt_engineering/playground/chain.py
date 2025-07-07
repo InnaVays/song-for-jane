@@ -2,12 +2,17 @@ from engines import generate_chain
 from memory import save_in_memory
 
 def run_chain():
-    print("\n Chain Mode: Guided emotional/metaphoric writing ")
-    print("\n Hi, Jane! ")
+
     while True:
-        topic = input("\n What do you want to write about? (or type 'q' to exit): ").strip()
-        if topic.lower() in ["q", "exit"]:
-            print("Goodbye, Jane.")
+        prompt = input("\n ✨ Enter the topic, you want to write about (or type 'q' or 'exit'): ").strip()
+        print("Jane says: "+prompt)
+        
+        if prompt.lower() in ["q", "exit"]:
+            print(" ✨ Goodbye, Jane.")
             break
 
-        output = generate_chain(topic)
+        if prompt == '':
+            print("\n ✨ You didn't give a topic, Jane! Let me surprise you! ")
+            prompt = 'Hippopotamus meets a badger'
+
+        output = generate_chain(prompt)
