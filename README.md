@@ -36,11 +36,25 @@ python -m nltk.downloader 'wordnet'
 python run_demo.py
 ```
 
-- **Personal Lyrics Generator**  
-  LoRa Fine-tunes a small language model using your own texts, poems, diary entries, or favourite songs.
+---
 
-- **Lyrics-to-Chords Mapper**  
-  Uses a fine-tuned model to predict chord progressions with rhythm indicators.
+## 🧠 Prompt Engineering Module
 
-- **Fully Customizable** 
-  You can swap in your own writing, your own dataset
+### Personalised Memory-Assisted Prompting
+
+Memory-Assisted Prompting works by turning past user preferences into active context for future generations.
+
+Every time the user keeps an output (a line, a metaphor, a verse), or rejects it with feedback, that choice is stored in memory. The next time a prompt is submitted, the system includes a short summary of those past preferences — allowing the language model to respond with content that aligns more closely with the user’s voice, style, and emotional direction.
+
+### Available Modes:
+
+- Simple Mode – Generate a single output using memory — including both liked and (optionally) rejected lines. Keep or reject with feedback.
+
+- Loop Mode – Generate multiple outputs at once. Select what resonates, reject what doesn’t, and leave comments to guide Jane’s voice.
+
+- Chain Mode – Iterative ideation on a chosen topic. Start with metaphor generation, refine framing, and only then move on to final generation.
+
+## Try Chat (openai based)
+```bash
+python prompt_engineering/main.py
+```
