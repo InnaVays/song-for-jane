@@ -3,7 +3,7 @@ from engines import generate_with_memory, write_memory_prompt
 from memory import load_past_memories, save_in_memory
 
 def generate_chain(topic, num_ideas= 3):
-    print(f"\n🎭 Chain of Thought — Topic: '{topic}'")
+    print(f"\n🎭 Chain Prompting — Topic: '{topic}'")
     saved_metaphor = None
 
     # Step 1: Metaphor generation loop
