@@ -16,6 +16,6 @@ def run_loop():
         print("\n Generating 3 options..." )
         print("\n ✨ Look, what I've written : \n" )
 
-        generate_loop(prompt)
+        generate_loop(topic, num_attempts=3)
 
 # False pretenses are dinner invitations that turn into unpaid babysitting shifts.
