@@ -1,6 +1,6 @@
-from engines import generate_loop
+from engines import generate_multiple
 
-def run_loop():
+def run_multiple():
     while True:
         
         prompt = input("\n ✨ Enter your poetic prompt (or type 'q' or 'exit'): ").strip()
@@ -13,9 +13,6 @@ def run_loop():
             print("\n ✨ You didn't give a topic, Jane! Let me surprise you! ")
             prompt = 'Hippopotamus meets a badger'
 
-        print("\n Generating 3 options..." )
-        print("\n ✨ Look, what I've written : \n" )
-
-        generate_loop(topic, num_attempts=3)
+        generate_loop(prompt, num_attempts=3)
 
 # False pretenses are dinner invitations that turn into unpaid babysitting shifts.

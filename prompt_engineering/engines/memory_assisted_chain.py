@@ -2,7 +2,7 @@ from api.llm_client import call_llm
 from engines import write_memory_prompt
 from memory import load_past_memories, save_in_memory
 
-ddef generate_jane_chain(topic, num_ideas):
+def generate_chain(topic, num_ideas):
     print(f"\n🎭 Prompt Chain - Jane's Song Topic: '{topic}'")
 
     # Step 1: Define the Emotional Core

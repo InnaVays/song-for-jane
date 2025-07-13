@@ -15,12 +15,12 @@ def write_memory_prompt(n=10, only_kept=False):
             memory_str += f"- Jane rejected: {m['output']} // Feedback: {m['feedback']}\n"   
     
     print('----------------------------------------')    
-    print(memory_str)
-    print('----------------------------------------')
+    #print(memory_str)
+    #print('----------------------------------------')
 
     return memory_str
 
-def generate_with_memory(base_prompt, only_kept=False, use_memory=True):
+def generate_with_memory(bases_prompt, only_kept=False, use_memory=True):
     
     memory_str = None
     

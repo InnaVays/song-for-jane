@@ -1,10 +1,10 @@
-from playground import run_simple, run_loop, run_chain
+from playground import run_simple, run_multiple, run_chain
 
 def main():
     print("\n ✨  ✨  ✨  Welcome to the Jane's Prompt Playground  ✨  ✨  ✨ ")
     print("\n ✨ Hi, Jane! Choose your mode:")
     print("\n1 - Simple (One-shot memory-assisted prompt)")
-    print("2 - Loop (Generate 5 and choose what you like)")
+    print("2 - Multiple (Generate 5 and choose what you like)")
     print("3 - Chain (Chain-of-thought poetic generation)\n")
 
     mode = input("Your choice (1/2/3): ").strip()
@@ -14,7 +14,7 @@ def main():
         run_simple()
     elif mode == "2":
         print("\n ✨ You Chose: Memory-assisted generation with Loop ✨ ")
-        run_loop()
+        run_multiple()
     elif mode == "3":
         print(f"\n ✨ You Chose: Chain of Thoughts with Memory-assisted generation ✨")
         run_chain()

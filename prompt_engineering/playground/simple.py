@@ -15,7 +15,7 @@ def run_simple():
             print("\n ✨ You didn't give a topic, Jane! Let me surprise you! ")
             prompt = 'Hippopotamus meets a badger'
 
-        output = generate_with_memory(prompt, only_kept=True)
+        output = generate_with_memory(prompt, only_kept=False)
         print(f"\n ✨ Generated Output:\n{output}")
         print("\n ✨ Please respond with:")
         print("  y - to keep")

@@ -15,7 +15,7 @@ def get_user_feedback(output_text, output_idx = 0):
 
     return keep, feedback
 
-def generate_loop(topic, num_attempts=3):
+def generate_multiple(topic, num_attempts=3):
 
     base_prompt = f"""
 Write a verse of a song, 4 lines, on the following topic:
