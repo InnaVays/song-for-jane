@@ -52,7 +52,7 @@ Every time the user keeps an output (a line, a metaphor, a verse), or rejects it
 
 - Loop Mode – Generate multiple outputs at once. Select what resonates, reject what doesn’t, and leave comments to guide Jane’s voice.
 
-- Chain Mode – Iterative ideation on a chosen topic. Start with metaphor generation, refine framing, and only then move on to final generation.
+- Chain Mode – Chain of Thoughts. Iterative ideation on a chosen topic. Step by step generation.
 
 ## Try Chat (openai based)
 ```bash

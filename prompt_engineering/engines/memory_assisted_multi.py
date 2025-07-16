@@ -25,7 +25,7 @@ Topic: {topic}"""
     prompt = base_prompt
     
     while True:
-        generations = [generate_with_memory(prompt, only_kept=False) for _ in range(num_attempts)]
+        generations = [generate_with_memory(base_prompt) for _ in range(num_attempts)]
         any_kept = False
         refined_feedbacks = []
 

@@ -8,11 +8,22 @@ api_key = os.getenv("OPENAI_API_KEY")
 
 client = openai.OpenAI(api_key=api_key)
 
-def call_llm(prompt, model="gpt-4.1-nano", temperature=0.9, max_tokens=100):
+def call_llm(prompt, chat_history=[], model="gpt-4.1-nano", temperature=0.9, max_tokens=200):
+    # Append user prompt
+    chat_history.append({"role": "user", "content": prompt})
+    
+    # Call model with full conversation
     response = client.chat.completions.create(
         model=model,
-        messages=[{"role": "user", "content": prompt}],
+        messages=chat_history,
         temperature=temperature,
         max_tokens=max_tokens
     )
-    return response.choices[0].message.content.strip()
+
+    # Get model reply
+    reply = response.choices[0].message.content.strip()
+    
+    # Append model response to history
+    chat_history.append({"role": "assistant", "content": reply})
+
+    return reply
