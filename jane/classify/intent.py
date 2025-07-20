@@ -38,7 +38,7 @@ class IntentClassifier:
             "- rewrite → if the text provides a draft or paragraph to improve, rewrite, adapt.\n"
             "- research → if the text asks for facts, sources, explanations, comparisons.\n"
             "- other → for greetings, chit-chat, or anything not covered.\n\n"
-            "Output only one word: 'brainstorm', 'rewrite', 'research', 'other'. Nothing else."
+            "Output only one word: 'brainstorm', 'rewrite', 'research', 'other'."
         )
 
         try:
