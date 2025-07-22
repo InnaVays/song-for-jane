@@ -11,13 +11,13 @@ Jane routes every input into one of four modes:
 
 - Rewrite (jane/rewrite/). Learns your style from previous drafts stored in memory. Two outputs per draft:
 
--- v1_style_mine – rewritten strictly in your personal style.
+ - v1_style_mine – rewritten strictly in your personal style.
 
--- v2_style_improved – rewritten with recommended improvements.
+ - v2_style_improved – rewritten with recommended improvements.
 
-Style retrieval: MongoDB Atlas Vector Search + LangChain.
+ Style retrieval: MongoDB Atlas Vector Search + LangChain.
 
-Future: LoRA fine-tuning (PEFT / Unsloth) via lorafy() hook.
+ Future: LoRA fine-tuning (PEFT / Unsloth) via lorafy() hook.
 
 - Research (jane/research/). Hybrid fact-gathering pipeline: First checks personal memory (vector DB). Then expands to web search (Tavily / SerpAPI). Combines results into bullet points with clear source labels: history (from your past notes) found (from the web). Uses LangChain RetrievalQA for orchestration.
 
