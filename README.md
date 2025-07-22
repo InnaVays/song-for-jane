@@ -55,23 +55,3 @@ Replies conversationally while nudging you back toward one of the three main mod
 git clone https://github.com/InnaVays/song-for-jane.git
 cd song-for-jane
 pip install -r requirements.txt
-
-## run tests
-pytest
-
-## run dev API server (WIP)
-uvicorn jane.api:app --reload
-
-## 📌 Roadmap
-
- Add TRIZ-based brainstorm module
-
- Plug in LoRA fine-tuning via lorafy()
-
- Multi-agent team orchestration with CrewAI
-
- UI prototype (chat interface)
-
- Advanced logging, metrics & evals
-
-Would you like me to also add a diagram (in Mermaid) to this README showing the four modules and the router flow? That way it’s visual right on GitHub.
