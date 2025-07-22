@@ -1,60 +1,77 @@
-# Song for Jane — Personal Songwriting with AI
+# Jane – Personal AI Co-Author
 
-**Song for Jane** is a DIY AI songwriting tool that helps you write lyrics and generate chord progressions tailored to your unique voice, taste, and emotional world.
+Jane is a AI assistant designed as a deeply personalized writing co-author.
+Unlike generic assistants, Jane adapts to your voice, keeps memory across sessions, and supports creative brainstorming, rewriting, and fact-finding — all in one place.
 
-This project is part of the **Make It Personal** ( https://makeitpesonal.substack.com/ ) initiative — exploring how AI can be expressive, accessible, and human-centered.
+## ✨ Core Modules
 
----
+Jane routes every input into one of four modes:
 
-## Project Goals
+- Brainstorm (jane/brainstorm/)
 
-- Let *anyone* train a lyrics model on what they love — even if they’ve never written a song.
+Creative idea engine powered by multi-persona prompting and step-by-step reasoning.
 
-- Create a reusable pipeline to turn text into music structure.
+TRIZ principles (40 inventive patterns) will be plugged in later.
 
+Output: multiple fresh angles, hooks, and analogies for your draft or topic.
 
-## Features
-- Scrape Gutenberg public domail folk songs lyrics
-- Fine-tune LoRA on personal prompts
-- Generate personalized lyrics
-- Evaluate with BLEU, ROUGE, embedding similarity (for now)
+- Rewrite (jane/rewrite/)
 
-## Getting Started
-```bash
+Learns your style from previous drafts stored in memory.
+
+Two outputs per draft:
+
+v1_style_mine – rewritten strictly in your personal style.
+
+v2_style_improved – rewritten with recommended improvements.
+
+Style retrieval: MongoDB Atlas Vector Search + LangChain.
+
+Future: LoRA fine-tuning (PEFT / Unsloth) via lorafy() hook.
+
+- Research (jane/research/)
+
+Hybrid fact-gathering pipeline:
+
+First checks personal memory (vector DB).
+
+Then expands to web search (Tavily / SerpAPI).
+
+Combines results into bullet points with clear source labels:
+
+history (from your past notes)
+
+found (from the web).
+
+Uses LangChain RetrievalQA for orchestration.
+
+- Other (jane/other/)
+
+Lightweight free-chat mode.
+
+Replies conversationally while nudging you back toward one of the three main modules.
+
+## 🚀 Quickstart
 git clone https://github.com/InnaVays/song-for-jane.git
 cd song-for-jane
-python3 -m venv venv
-source venv/bin/activate
 pip install -r requirements.txt
-python -m nltk.downloader 'punkt'
-python -m nltk.downloader 'wordnet'
 
-```
+## run tests
+pytest
 
-## Run Demo
-```bash
-python run_demo.py
-```
+## run dev API server (WIP)
+uvicorn jane.api:app --reload
 
----
+## 📌 Roadmap
 
-## 🧠 Prompt Engineering Module
+ Add TRIZ-based brainstorm module
 
-### Personalised Memory-Assisted Prompting
+ Plug in LoRA fine-tuning via lorafy()
 
-Memory-Assisted Prompting works by turning past user preferences into active context for future generations.
+ Multi-agent team orchestration with CrewAI
 
-Every time the user keeps an output (a line, a metaphor, a verse), or rejects it with feedback, that choice is stored in memory. The next time a prompt is submitted, the system includes a short summary of those past preferences — allowing the language model to respond with content that aligns more closely with the user’s voice, style, and emotional direction.
+ UI prototype (chat interface)
 
-### Available Modes:
+ Advanced logging, metrics & evals
 
-- Simple Mode – Generate a single output using memory — including both liked and (optionally) rejected lines. Keep or reject with feedback.
-
-- Loop Mode – Generate multiple outputs at once. Select what resonates, reject what doesn’t, and leave comments to guide Jane’s voice.
-
-- Chain Mode – Chain of Thoughts. Iterative ideation on a chosen topic. Step by step generation.
-
-## Try Chat (openai based)
-```bash
-python prompt_engineering/main.py
-```
+Would you like me to also add a diagram (in Mermaid) to this README showing the four modules and the router flow? That way it’s visual right on GitHub.
