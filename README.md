@@ -7,19 +7,9 @@ Unlike generic assistants, Jane adapts to your voice, keeps memory across sessio
 
 Jane routes every input into one of four modes:
 
-- Brainstorm (jane/brainstorm/)
+- Brainstorm (jane/brainstorm/). Creative idea engine powered by multi-persona prompting and step-by-step reasoning. TRIZ principles (40 inventive patterns) will be plugged in later. Output: multiple fresh angles, hooks, and analogies for your draft or topic.
 
-Creative idea engine powered by multi-persona prompting and step-by-step reasoning.
-
-TRIZ principles (40 inventive patterns) will be plugged in later.
-
-Output: multiple fresh angles, hooks, and analogies for your draft or topic.
-
-- Rewrite (jane/rewrite/)
-
-Learns your style from previous drafts stored in memory.
-
-Two outputs per draft:
+- Rewrite (jane/rewrite/). Learns your style from previous drafts stored in memory. Two outputs per draft:
 
 v1_style_mine – rewritten strictly in your personal style.
 
@@ -29,29 +19,14 @@ Style retrieval: MongoDB Atlas Vector Search + LangChain.
 
 Future: LoRA fine-tuning (PEFT / Unsloth) via lorafy() hook.
 
-- Research (jane/research/)
+- Research (jane/research/). Hybrid fact-gathering pipeline: First checks personal memory (vector DB). Then expands to web search (Tavily / SerpAPI). Combines results into bullet points with clear source labels: history (from your past notes) found (from the web). Uses LangChain RetrievalQA for orchestration.
 
-Hybrid fact-gathering pipeline:
-
-First checks personal memory (vector DB).
-
-Then expands to web search (Tavily / SerpAPI).
-
-Combines results into bullet points with clear source labels:
-
-history (from your past notes)
-
-found (from the web).
-
-Uses LangChain RetrievalQA for orchestration.
-
-- Other (jane/other/)
-
-Lightweight free-chat mode.
-
-Replies conversationally while nudging you back toward one of the three main modules.
+- Other (jane/other/) / Lightweight free-chat mode. Replies conversationally while nudging you back toward one of the three main modules.
 
 ## 🚀 Quickstart
+
+```
 git clone https://github.com/InnaVays/song-for-jane.git
 cd song-for-jane
 pip install -r requirements.txt
+```
