@@ -1,36 +1,27 @@
 
-## === Scraper
-scrape:
-  source_list: "data/sources.json"
-  output_file: "data/stanzas_new.json"
+tiers:
+  small:
+    provider: openai
+    model:  gpt-4.1-nano
+    temperature: 0.2
+    max_output_tokens: 700
+  medium:
+    provider: openai
+    model: gpt-4o-mini
+    temperature: 0.25
+    max_output_tokens: 1200
+  large:
+    provider: openai
+    model: gpt-4o
+    temperature: 0.35
+    max_output_tokens: 2500
 
-## === Prompt Writer
-prompt:
-  input_file: "data/stanzas.json"
-  output_file: "data/prompts.json"
-
-## === Training
-train:
-  dataset_file: "data/train_prompts.json"
-  output_dir: "model_checkpoints/lora-song4jane"
-  base_model: "microsoft/phi-1_5"
-  num_epochs: 3
-  batch_size: 1
-  gradient_accumulation: 1
-  learning_rate: 0.0003
-
-## === Inference
-inference:
-  test_prompts: "data/test_prompts.json"
-  save_outputs_to: "data/inference_outputs.json"
-  max_new_tokens: 128
-  temperature: 0.7
-  device: "cpu"  # or "cuda" if running on GPU
-
-# === Logging
-logging:
-  log_path: "logs/inference_log.jsonl"
-
-# === Memory prompting
-memory:
-  memory_file: "user_memory_log.jsonl"
+nodes:
+  brief: {tier: small}
+  planner: {tier: large}
+  selector: {tier: small}
+  retriever: {tier: small}
+  style_fuser: {tier: medium}
+  poem_writer: {tier: medium}
+  feedback_interpreter: {tier: small}
+  replanner: {tier: medium}
