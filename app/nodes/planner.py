@@ -46,9 +46,6 @@ def planner_node(state: AppState) -> Dict[str, Any]:
                 pass
     return {"plan_variants": parsed}
 
-
-
-
 def __safe_json(text: str) -> Dict[str, Any]:
     try:
         return json.loads(text)
