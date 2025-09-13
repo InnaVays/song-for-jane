@@ -4,6 +4,8 @@ from pydantic import ValidationError
 from app.llm import llm
 from app.prompts import CRITIC_SYS
 from app.state import Review
+from app.state import AppState
+
 
 CRITIC_USER_TMPL = """
 Stanza k: {k}

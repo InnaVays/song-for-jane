@@ -4,6 +4,8 @@ from app.llm import llm
 from app.prompts import POEM_WRITER_SYS
 
 from typing import List
+from app.state import AppState
+
 
 def _simple_last_word(line: str) -> str:
     line = line.strip().lower()
