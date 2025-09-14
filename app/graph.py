@@ -8,7 +8,6 @@ from app.nodes.planner import planner_node
 from app.nodes.selector import selector_node
 from app.nodes.retriever import retriever_node
 from app.nodes.style_fuser import style_fuser_node
-from app.nodes.triz_booster import triz_booster_node
 from app.nodes.poem_writer import poem_writer_node
 from app.nodes.critic import critic_node
 from app.nodes.decider import decider_node
@@ -20,8 +19,7 @@ from app.nodes.memory_io import memory_io_node
 
 def finalize_node(state: Dict[str, Any]) -> Dict[str, Any]:
     stanzas = state.get("stanzas", [])
-    final_text = "
-".join(stanzas) if stanzas else ""
+    final_text = "".join(stanzas) if stanzas else ""
     return {"final_text": final_text}
 
 def build_graph() -> Any:
@@ -32,7 +30,6 @@ def build_graph() -> Any:
     g.add_node("selector", selector_node)
     g.add_node("retriever", retriever_node)
     g.add_node("style_fuser", style_fuser_node)
-    g.add_node("triz", triz_booster_node)
     g.add_node("poem_writer", poem_writer_node)
     g.add_node("critic", critic_node)
     g.add_node("decider", decider_node)
