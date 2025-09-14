@@ -20,11 +20,9 @@ from app.nodes.memory_io import memory_io_node
 
 def finalize_node(state: Dict[str, Any]) -> Dict[str, Any]:
     stanzas = state.get("stanzas", [])
-    final_text = "".join(stanzas) if stanzas else ""
+    final_text = "
+".join(stanzas) if stanzas else ""
     return {"final_text": final_text}
-
-
-
 
 def build_graph() -> Any:
     g = StateGraph(AppState)
