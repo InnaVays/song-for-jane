@@ -5,8 +5,30 @@ load_dotenv()
 
 from app.graph import build_graph
 
+from pathlib import Path
+import subprocess, sys
+
+def ensure_vectorstores():
+    kb_dir = Path("vectorstores/prosody")
+    mem_dir = Path("vectorstores/memory")
+
+    # Если папка пуста/нет коллекции — собираем
+    if not kb_dir.exists() or not any(kb_dir.iterdir()):
+        print("[INIT] Building Prosody KB index...")
+        subprocess.check_call([sys.executable, "app/indexing/build_kb_index.py",
+                               "--source", "kb/prosody_corpus",
+                               "--persist", "vectorstores/prosody",
+                               "--collection", "prosody"])
+
+    if not mem_dir.exists() or not any(mem_dir.iterdir()):
+        print("[INIT] Building User Memory index...")
+        subprocess.check_call([sys.executable, "app/indexing/build_memory_index.py",
+                               "--memory", "memory",
+                               "--persist", "vectorstores/memory",
+                               "--collection", "memory"])
 
 if __name__ == "__main__":
+    ensure_vectorstores()
     graph = build_graph()
 
     config = {"configurable": {"thread_id": "demo-thread-001"}}
