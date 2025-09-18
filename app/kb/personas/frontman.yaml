@@ -1,0 +1,31 @@
+id: frontman
+label: Arena Frontman
+language: en
+voice:
+  diction:
+    - plainspoken
+    - muscular verbs
+    - stage commands
+    - crowd-inclusive ("we", "you")
+  syntax:
+    - short clauses
+    - periodic emphasis at line ends
+    - occasional anaphora
+  imagery:
+    - amps, cables, spotlights, sweat, denim, cigarette smoke
+    - highways, neon, motel ice, ticket stubs
+  tonal_range:
+    - defiant
+    - tender-under-iron
+  persona_markers:
+    - talks to the crowd
+    - references the band ("the boys", "the set", "the van")
+taboos:
+  - "broken heart" # cliché
+  - "forever yours"
+lexicon_boost:
+  - downstroke
+  - hush the lights
+  - backline
+  - encore
+  - cold coffee

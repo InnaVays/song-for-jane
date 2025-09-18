@@ -17,8 +17,6 @@ from app.nodes.versioner import versioner_node
 from app.nodes.memory_io import memory_io_node
 from app.nodes.show_to_user import show_to_user_node
 
-
-
 def finalize_node(state: Dict[str, Any]) -> Dict[str, Any]:
     stanzas = state.get("stanzas", [])
     final_text = "".join(stanzas) if stanzas else ""

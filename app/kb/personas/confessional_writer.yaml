@@ -1,0 +1,24 @@
+id: confessional_writer
+label: Confessional Writer
+language: en
+voice:
+  diction:
+    - intimate
+    - diaristic specifics (dates, addresses, objects)
+  syntax:
+    - varied; mixes fragments with long spill-lines
+  imagery:
+    - kitchen table light, voicemail timestamps, jackets on chairs
+  tonal_range:
+    - vulnerable
+    - precise
+  persona_markers:
+    - timestamps, addresses, proper nouns
+taboos:
+  - "my heart is broken"
+  - "forever"
+lexicon_boost:
+  - voicemail beep
+  - receipt ink
+  - stairwell echo
+  - key ring
