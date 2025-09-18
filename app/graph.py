@@ -15,6 +15,8 @@ from app.nodes.feedback_interpreter import feedback_interpreter_node
 from app.nodes.replanner import replanner_node
 from app.nodes.versioner import versioner_node
 from app.nodes.memory_io import memory_io_node
+from app.nodes.show_to_user import show_to_user_node
+
 
 
 def finalize_node(state: Dict[str, Any]) -> Dict[str, Any]:
@@ -31,6 +33,7 @@ def build_graph() -> Any:
     g.add_node("retriever", retriever_node)
     g.add_node("style_fuser", style_fuser_node)
     g.add_node("poem_writer", poem_writer_node)
+    g.add_node("show_to_user", show_to_user_node)
     g.add_node("critic", critic_node)
     g.add_node("decider", decider_node)
     g.add_node("feedback_interpreter", feedback_interpreter_node)
@@ -43,25 +46,29 @@ def build_graph() -> Any:
     g.add_edge("planner", "selector")
     g.add_edge("selector", "retriever")
     g.add_edge("retriever", "style_fuser")
-    g.add_edge("style_fuser", "triz")
-    g.add_edge("triz", "poem_writer")
+    g.add_edge("style_fuser", "poem_writer")
     g.add_edge("poem_writer", "critic")
     g.add_edge("critic", "decider")
 
-    def route_decision(state: Dict[str, Any]):
-        d = state.get("last_decision", "accept")
+    def route_decision(state):
+        d = state.get("last_decision","accept")
         if d == "rewrite":
             return "replanner"
-        if state.get("hitl", True):
-            return "feedback_interpreter"
-        return "memory_io"
-
+        return "show_to_user"
 
     g.add_conditional_edges("decider", route_decision, {
         "replanner": "replanner",
+        "show_to_user": "show_to_user",
+    })
+
+    def wait_or_feedback(state):
+        # если нет сырых фидбэков — останавливаемся (UI дернёт следующий шаг позже)
+        return "feedback_interpreter" if state.get("raw_feedback") else "__STOP__"
+
+    g.add_conditional_edges("show_to_user", wait_or_feedback, {
         "feedback_interpreter": "feedback_interpreter",
-        "memory_io": "memory_io",
-        })
+        "__STOP__": END,  # Пауза. Состояние сохранено чекпойнтером.
+    })
 
     g.add_edge("replanner", "versioner")
     g.add_edge("versioner", "selector")
