@@ -1,0 +1,17 @@
+id: negative_space
+label: Negative Space & Breath — Leave Air
+language: en
+guidance:
+  pause_points:
+    - "End line 2 with image not explained until line 3"
+    - "Allow 1 ellipsis per song (max), not as crutch"
+  deletion_pass:
+    - "Cut 1 filler word per line"
+    - "Prefer implied emotion via object"
+examples:
+  good_gaps: ["She left the coat— / the ticket in the pocket."]
+quality_checks:
+  max_ellipses: 1
+  filler_words: ["very", "really", "just", "still", "only"]
+retrieval_tags: [negative_space, economy, breath]
+critic_focus: [economy, imagery]

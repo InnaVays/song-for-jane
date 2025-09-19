@@ -1,0 +1,24 @@
+id: hook_engineering
+label: Hook Engineering — Chorus/Title Heuristics
+language: en
+guidance:
+  title_rules:
+    - "≤ 5 content words, singable vowels, avoid sibilant clusters"
+    - "Concrete noun or active verb present"
+  chorus_shape:
+    - "First line: title or title-variant"
+    - "Second line: escalation or contrast"
+    - "Third: compression (image or command)"
+    - "Fourth: return to title with twist"
+  vowel_map:
+    - "Prefer open vowels (a, ah, oh) on held notes"
+  repetition_policy:
+    - "2–3 repeats max; incremental meaning on each"
+examples:
+  good_titles: ["Late Train", "Neon Bridge", "Leave the Lights"]
+  weak_titles: ["My Feelings", "Forever Love"]
+quality_checks:
+  title_len_max: 5
+  require_title_in_chorus: true
+retrieval_tags: [hook, chorus, title, singability]
+critic_focus: [memorability, diction_strength]

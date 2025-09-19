@@ -1,0 +1,17 @@
+id: bridge_lift
+label: Bridge — Emotional Lift & Harmonic Space
+language: en
+guidance:
+  purpose:
+    - "Change vantage: time, person, or altitude"
+    - "Introduce regret/resolve line the verse cannot hold"
+  text_moves:
+    - "Switch deictic center (here→there, now→then)"
+    - "Unlock a new metaphor from existing objects"
+  musical_hints:
+    - "Allow longer vowels; lines 2–3 can run past meter by +1"
+quality_checks:
+  require_perspective_shift: true
+  meter_tolerance: "±2"
+retrieval_tags: [bridge, perspective_shift, lift]
+critic_focus: [coherence, novelty]

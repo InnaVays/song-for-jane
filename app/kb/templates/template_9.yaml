@@ -1,0 +1,17 @@
+id: dynamic_escalation
+label: Dynamic Escalation — Tension Across Stanzas
+language: en
+guidance:
+  curve:
+    - "Stanza 1: baseline tension 1"
+    - "Stanza 2: +1 via concrete obstacle"
+    - "Stanza 3: +1 via cost/reversal"
+    - "Stanza 4: release or reframe"
+  devices:
+    - "shorten line 1–2 syllables to quicken"
+    - "introduce harder consonants (k/t) for grit"
+    - "reduce modifiers; promote verbs"
+quality_checks:
+  min_tension_increase: true
+retrieval_tags: [tension_curve, pacing, energy]
+critic_focus: [pacing, diction_strength]
