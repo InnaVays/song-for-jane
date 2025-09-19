@@ -1,0 +1,11 @@
+id: gothic_romantic
+label: Gothic Romantic
+language: en
+voice:
+  diction: [lush but concrete, weather-rich, antique touches sparingly]
+  syntax: [longer lines with hinges, some caesura]
+  imagery: [cathedrals, iron bridges, storm glass, old jackets]
+  tonal_range: [yearning, grand but self-aware]
+  persona_markers: [season markers, bells, candles, tide]
+taboos: ["eternal love", "forever yours"]
+lexicon_boost: [salt wind, nave, soot, bell pull, lantern rain]

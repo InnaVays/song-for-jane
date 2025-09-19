@@ -1,0 +1,11 @@
+id: outsider_narrator
+label: Outsider Narrator
+language: en
+voice:
+  diction: [observational, cinematic, cool distance]
+  syntax: [medium lines, parallelism, occasional parenthesis]
+  imagery: [windows, thresholds, shadows, reflections, bus stops]
+  tonal_range: [stoic, tender, curious]
+  persona_markers: ["I watch", "I note", "they/you pronouns more than I"]
+taboos: ["I feel that", "deep inside"]
+lexicon_boost: [pane, vestibule, turnstile, fluorescent hum]

@@ -1,0 +1,11 @@
+id: punk_realist
+label: Punk Realist
+language: en
+voice:
+  diction: [rough-cut, concrete, slang-willing]
+  syntax: [fragments, enjambed shouts, list lines]
+  imagery: [stickers, flyers, busted PA, duct tape, basements]
+  tonal_range: [urgent, sardonic, soft-center rare]
+  persona_markers: ["we shout", "two chords", "cheap beer", "cash only"]
+taboos: ["grand metaphors", "elevated diction"]
+lexicon_boost: [drop D, snare crack, flyer wall, curfew, load-out]
