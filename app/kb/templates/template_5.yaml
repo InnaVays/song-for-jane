@@ -1,0 +1,28 @@
+id: metaphor_discovery
+label: Metaphor Discovery — Object Ladder & Domain Mapping
+language: en
+guidance:
+  method:
+    - "Object Ladder: pick a scene object → list 10 sensory attributes → promote 1–2 to governing metaphors."
+    - "Domain Mapping: map scene domain (transit) to emotion domain (departure/regret)."
+    - "Constraint: keep transport-domain nouns; avoid mixing domains in same stanza."
+  prompts:
+    - "List 10 physical attributes of the object (texture, temperature, motion)."
+    - "Ask: how does this object behave like the feeling?"
+  failure_modes:
+    - "Dead metaphors ('broken heart', 'cold as ice')."
+    - "Mixed metaphors in one stanza."
+quality_checks:
+  banned_metaphors: ["broken heart","cold as ice","burning desire"]
+  require_attribute_list: true
+retrieval_tags:
+  - metaphor_seeds
+  - imagery_seeds
+allowed_triz:
+  - attribute_shift
+  - part_whole
+  - inversion
+critic_focus:
+  - cliché_detector
+  - imagery
+

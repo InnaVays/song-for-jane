@@ -1,0 +1,27 @@
+id: stanza_architecture
+label: Line & Stanza Architecture — Image Goal Turn
+language: en
+defaults:
+  stanza_count: 4
+guidance:
+  line_roles:
+    - "L1: location/time anchor"
+    - "L2: moving image / action"
+    - "L3: personal stake or detail"
+    - "L4: hinge/echo back to scene"
+  stanza_goal:
+    - "One concrete image that can be filmed."
+    - "A micro-arc (setup → movement → hinge)."
+  negative_space:
+    - "Leave 1-2 implied beats for the listener to bridge."
+examples:
+  mini_outlines:
+    - "Station at night → board flicker → her name fades → train brakes hiss"
+quality_checks:
+  must_use_imagery: 1
+  max_abstractions_per_stanza: 1
+retrieval_tags:
+  - stanza_design
+critic_focus:
+  - imagery
+  - coherence

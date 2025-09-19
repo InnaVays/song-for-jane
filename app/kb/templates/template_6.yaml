@@ -1,0 +1,24 @@
+id: writing_tricks_toolbox
+label: Writer's Tricks — Punchups & Repairs
+language: en
+guidance:
+  punchups:
+    - "Swap abstract nouns for objects (swap 'love' → 'ticket stub'/'call at 2am')."
+    - "Verb upgrade: weak 'is/are' → concrete action ('flares', 'buckles', 'ghosts')."
+    - "Frame shift: zoom from crowd to single object, or reverse."
+  fixes:
+    - "If meter off by +2: remove filler adverbs/articles at start."
+    - "If rhyme forced: switch to slant; keep vowel family consistent."
+    - "If cliché detected: replace with scene-specific inventory item."
+  scaffolds:
+    - "Anaphora starter: 'Tonight,' / 'On the platform,' / 'Under the bridge,'"
+    - "Turn hinge: 'unless', 'but', 'still', 'even now'"
+quality_checks:
+  max_cliches: 0
+  verb_weakness_threshold: 1
+retrieval_tags:
+  - writing_tricks
+  - repairs
+critic_focus:
+  - cliché_detector
+  - diction_strength

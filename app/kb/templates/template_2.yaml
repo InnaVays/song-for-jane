@@ -1,0 +1,50 @@
+id: rock_ballad
+label: Rock Ballad — Narrative Spine
+language: en
+defaults:
+  form: ballad
+  rhyme: ABAB
+  meter: iamb_4
+  stanza_count: 4
+guidance:
+  pacing:
+    - "Stanza 1: establish scene + hook image"
+    - "Stanza 2: deepen conflict / reveal motive"
+    - "Stanza 3: turn (cost, choice, reversal)"
+    - "Stanza 4: resolution image, leave air"
+  persona:
+    - "frontman|road_poet recommended; confessional_writer for intimate demos"
+  imagery_policy:
+    - "1 vivid concrete image per stanza"
+    - "Avoid abstract labels; prefer objects with texture and temperature"
+beats:
+  - { k: 1, goal: "set place+time", image: "wet asphalt / station light", turn: "none", source: template, confidence: 0.8 }
+  - { k: 2, goal: "introduce personal stake", image: "late train, a name on the board", turn: "tension", source: template, confidence: 0.75 }
+  - { k: 3, goal: "choice or cost", image: "bridge, suitcase weight", turn: "reversal", source: template, confidence: 0.7 }
+  - { k: 4, goal: "afterglow / echo", image: "tail-lights on wet road", turn: "release", source: template, confidence: 0.75 }
+allowed_triz:
+  - inversion
+  - merge
+  - parameter_change
+quality_checks:
+  meter_tolerance: "±1"
+  must_use_imagery: 1
+  forbidden_words:
+    - "broken heart"
+    - "forever yours"
+dos_donts:
+  do:
+    - "Use place-anchoring nouns and time markers"
+    - "Let verbs carry energy"
+  dont:
+    - "Over-rhyme with obvious pairs (fire/desire)"
+    - "State emotions directly; show via object/action"
+retrieval_tags:
+  - ballad_rules
+  - rhyme_examples
+  - persona_frontman
+critic_focus:
+  - meter
+  - rhyme
+  - cliché_detector
+  - persona_consistency

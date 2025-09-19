@@ -1,0 +1,30 @@
+id: versification_meter
+label: Versification — Meter & Rhythm (Iambic Tetrameter focus)
+language: en
+defaults:
+  meter: iamb_4
+  rhyme: ABAB
+guidance:
+  meter_notes:
+    - "Target 8 syllables per line (≈ iambic tetrameter)."
+    - "Allow ±1 syllable tolerance for natural diction."
+    - "Prefer unstressed-stressed cadence; avoid heavy trochaic runs unless intentional."
+  line_endings:
+    - "Prefer strong monosyllabic or stressable word at line end."
+  syncopation:
+    - "Permit occasional anacrusis and feminine endings if musical."
+examples:
+  good_lines:
+    - "The platform hums beneath the rain"
+    - "A name flickers out on the board"
+  pitfalls:
+    - "Overcrowded lines with extra function words"
+    - "Mechanical da-DUM scansion without meaning"
+quality_checks:
+  meter_tolerance: "±1"
+  enforce_last_word_stress: false
+retrieval_tags:
+  - meter_rules
+  - iambic_tetrameter
+critic_focus:
+  - meter

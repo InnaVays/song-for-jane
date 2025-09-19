@@ -1,0 +1,31 @@
+id: rhyme_sound_devices
+label: Rhyme & Sound Devices — ABAB with Texture
+language: en
+defaults:
+  rhyme: ABAB
+guidance:
+  scheme:
+    - "ABAB for forward motion; alternate imagery to keep momentum."
+  slant_rhyme:
+    - "Use slant/near rhyme to avoid clichés; consonance > forced identity."
+  alliteration_assonance:
+    - "Sprinkle, not pour: 1-2 per stanza as texture."
+  enjambment:
+    - "Let rhyme resolve sense occasionally on next line to avoid singsong."
+examples:
+  rhyme_pairs:
+    - [rain, again]
+    - [glass, pass]
+    - [gate, late]
+  avoid_pairs:
+    - [fire, desire]
+    - [heart, apart]
+quality_checks:
+  avoid_pairs: ["fire:desire","heart:apart"]
+  min_sonic_devices_per_stanza: 1
+retrieval_tags:
+  - rhyme_examples
+  - sound_devices
+critic_focus:
+  - rhyme
+  - cliché_detector
