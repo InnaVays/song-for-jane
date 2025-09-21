@@ -1,0 +1,7 @@
+On the Meteorology of Keys
+
+Keys predict weather more reliably than any satellite. Observe the janitor’s ring: if it clatters like hail, bring in the laundry; if it hushes like a librarian’s breath, the sky will be legible. Today my pocket orchestra jingled in a scale I associated with noon thunder. I carried them to the courtyard and scattered them on a bench—domestic constellations, authority disguised as teeth. Each key glittered with a door’s dream, and doors, as we know, are notorious meteorologists.
+
+I tried them against the air, turning locks that were not there. The small brass one smelled of pencils and confessions; it would open, I felt, a classroom in which the lesson is never over. The long iron one had a mustache and insisted on opera; it would open a theater that keeps performance folded in its velvet until the audience admits to believing. A key with a chipped blue cap hummed like a refrigerator—a kitchen waiting for a revelation involving mint and sorrow.
+
+Clouds negotiated with chimneys. Rain signatures queued for permits. A locksmith walked by and tipped his hat to the bench as if greeting colleagues; perhaps he knew that keys congregate to exchange weather tips. When I gathered them, they were heavier, as if each had borrowed a raindrop. The storm began politely, each drop unlocking a smell the city had forgotten it owned: wet iron, baked arguments, the tender mold of childhood basements. I returned the keys to my pocket. Forecast fulfilled.

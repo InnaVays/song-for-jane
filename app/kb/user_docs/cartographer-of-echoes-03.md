@@ -1,0 +1,7 @@
+Cartographer of Echoes
+
+I map echoes for a living. Don’t laugh. The world is not made of matter or meaning but of reverberations pretending to be both. You can tell where a cathedral has been demolished by the way pigeons sound slightly guilty above empty lots. You can tell where a promise broke by the chime that refuses to die in the listener’s ear, becoming tinnitus branded with the speaker’s initials.
+
+Customers hire me to locate lost statements. One woman asked for the exact coordinates of a yes that never arrived; she swore it must be trapped in the ventilation of a train that left without her. I found it not in the ducts but in the station clock, whose minute hand dragged as if wading through honey—time itself sticky with aborted affirmations. A man begged me to retrieve his father’s laugh. It had lodged in a theater seat after the final show; every night the empty cushion shook, faithful as a dog, to the ghost of a joke no one could retell.
+
+My instruments are humble: a cracked glass, a notebook that only absorbs sounds written sideways, a pair of shoes that squeak in B minor. I listen until the world blushes. The map grows. In the margins I sketch small legends: Here be murmurs that thought themselves roars. There, roars that envied murmurs their privacy. When I sleep, the echoes dream me back into their mouths. Morning arrives—an exhale with cartographic ambitions. I lace my shoes and go measure the distance between what we say and what we keep.

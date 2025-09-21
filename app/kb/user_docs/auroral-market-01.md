@@ -1,0 +1,7 @@
+The Auroral Market
+
+The market arrived before dawn the way rumors do—on feet that barely touch the ground, with stalls blossoming out of fog as if the fog itself had been negotiating space all night. Vendors unrolled carpets woven with star-pricked threads; the fishmonger displayed moon-scaled sardines that twitched toward the east, insisting on their ancestral tide; a woman with a voice like a bell that had swallowed another bell sold jars labeled Memory, though the labels peeled back to reveal older names—Remorse, Reverie, Reprise.
+
+Children, who have unlicensed visas for the border between waking and dreaming, ran first; they returned carrying coins stamped with languages no longer spoken by people but perfectly understood by crows. I walked the aisles pretending to be practical. I bought two tomatoes because their skins held the red of embarrassing confessions; I bought a spoon whose handle coiled like a question mark, for questions ought to be ladled gently; I bought a length of wind that the vendor assured me was bottled from a valley where widows sing to their shadows until the shadows hum back.
+
+Prices fluctuated as stories do. The man selling rain (loose, not in packets) quoted me one history for a drizzle and another for a squall. By sunrise the market had persuaded the town to forgive itself for the previous day. When the aurora dimmed, the stalls folded into the pockets of their owners, and we were left with our goods: a few edible truths, a utensil for wonder, a weather system small enough to carry home.

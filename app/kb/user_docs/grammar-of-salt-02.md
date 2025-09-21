@@ -1,0 +1,7 @@
+The Grammar of Salt
+
+My grandmother kept a jar of salt on the sill and conversed with it in the afternoons when the sea remembered to lean into our alley. Salt, she believed, is the punctuation of the earth: a comma on the tongue, an em dash in a wound, an ellipsis in the brow after we taste someone else’s sorrow. “Learn its grammar,” she said, “and no let-down will be illiterate.”
+
+I learned, then forgot, as students of any stern teacher do. Years later, after the city’s fountains were repurposed as mirrors for high-rise remorse, I borrowed her jar. The crystals clinked like tiny bones learning to dance. I sprinkled a pinch on my threshold; stray cats assembled, as if called by a whistle too small for human mouths. I salted a pot of lentils and heard the lentils confess that they preferred being counted to being eaten. I salted a letter I never sent, and the words cured into something tougher than sense.
+
+Neighbors accused me of seasoning the neighborhood into a different century. They were not wrong. Streetlamps began giving advice in a dialect that had once been fashionable among courtesans; doorbells refused to be rung except with fingertips that had touched river water within the hour. I licked my wrist and tasted cliff-edge and kitchen table at once. When the jar emptied, I wrote a thank-you note to the sea and signed it with my tongue. The grammar held. Even grief agreed to be declensed, even joy consented to be conjugated.

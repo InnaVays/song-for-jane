@@ -1,0 +1,7 @@
+Post Office of Dreams
+
+Our town’s dreams report dutifully to the post office at dawn to be sorted by a clerk whose eyelids stamp everything with a crescent. The counter smells of lavender and bureaucracy. I queue behind a fox in a waistcoat (recurring), an ex-mayor (remorseful), and a suitcase that insists it traveled alone. Above us, bulletins: DELAYS EXPECTED IN SUBCONSCIOUS DUE TO WEATHER; PLEASE CORRECT MISADDRESSED DESIRES.
+
+When my turn comes, I present a bundle of dreams tied with headphone cords. “Priority?” the clerk asks. I say yes—one of them contains my mother speaking in a voice she never had in waking life, a voice that fits me better than my coat. Another is addressed to an old friend in a city where all the clocks are shy; it instructs him how to laugh without permission. The last is unaddressed, a dream of a train that forgets to stop and becomes a horizon instead.
+
+The clerk weighs each dream on a scale that balances hope against plausibility. “You’re overweight on miracles,” they say, and charge a small fee. I pay in yawns. Packages slide down chutes labeled with the names of oceans. The fox collects a parcel that smells of feathers; the ex-mayor signs for a box marked RECOUNT. Outside, the day yawns open, a mailbox full of light. I go home to wait for delivery. By midnight, a knocking: not at the door but at the mirror. My mother’s voice arrives, return to sender, and I practice answering until my mouth remembers.

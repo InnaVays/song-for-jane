@@ -1,0 +1,7 @@
+Migrations of Shadow
+
+Every autumn the shadows migrate south, dragging ankles of lamplight, molting in alleys, pecking at the hems of coats. We pretend not to notice. Bureaucrats stamp passports for silhouettes under the table; even the sun looks away, pretending to be busy burning older paperwork. I keep watch from my balcony, counting them like a monk of darkness. That one belongs to a violinist who moved away first; see how the wrist remembers a flourish the hand forgot. That elongated fellow used to attend rallies; now it prefers stairwells and mutters slogans to dust.
+
+Children adapt fastest. They teach their shadows new games: hopscotch with squares drawn on the underside of benches, tag in the reflections of puddles. Lovers struggle; they distrust the fidelity of a shade that lengthens for anyone. Sometimes a shadow auditions for another body. I saw a baker’s shadow shrink itself to fit a boy who needed bravery; the bread rose more confidently that morning, as if encouraged by an older recipe whispered from below.
+
+When winter arrives, the great reunion occurs in basements and behind curtains. Shadows tell stories of foreign pavements, of languages learned from street dogs, of corners that tasted of cardamom and warning. Mine returns last, as if embarrassed by its adventures, carrying a suitcase of smudges. We embrace. It is thinner but wiser, and when I lie down to sleep, it tucks me in with practiced carefulness, shading me from the glare of tomorrow.

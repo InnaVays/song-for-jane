@@ -1,0 +1,7 @@
+The House That Refused
+
+Our house refused certain verbs. It would not settle; it preferred to hover a thumb’s-width above its foundations, as if disagreeing with gravity’s politics. It would not age; the wallpaper restored its own roses nightly, the staircase rubbed sleep from its balusters and called it polish. Guests were bewildered. “What do you feed it?” they asked. “Weather,” we said, and served bowls of lightning soup with a garnish of calm.
+
+The house had principles. It accepted apologies from shoes but not from umbrellas. It disliked door slamming unless the argument involved poetry. It considered windows to be ambassadors rather than openings. Once a month it demanded a story in which it was not the protagonist; we delivered epics about the mailbox, the gutter, the towel rack and their ambitions. In gratitude, the house adjusted its acoustics, letting our jokes land softly and our silences fall without bruise.
+
+Rumors spread: that we lived in a saint, that our mortgage was denominated in compliments, that inspectors had failed to measure the property because their tape curled into question marks. When the city threatened to widen the street, the house planted its address deeper in the postman’s memory. The street turned aside. We grew old—yes, despite the wallpaper’s loyalty—and the house learned the verb keep: keep the smell of summer books, keep the notch on the doorframe where a child jumped higher than expected, keep the names of those who left. On the last night it permitted itself one new verb. It stayed.
