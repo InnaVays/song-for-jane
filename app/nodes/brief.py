@@ -1,8 +1,9 @@
 from __future__ import annotations
 from typing import Dict, Any
 from pydantic import ValidationError
-from app.state import AppState, Brief
+from app.state import AppState
 from app.llm import llm
+
 
 
 BRIEF_SYS = (
