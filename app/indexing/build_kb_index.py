@@ -14,6 +14,8 @@ import chromadb
 from chromadb import PersistentClient
 from openai import OpenAI
 
+from dotenv import load_dotenv
+load_dotenv()
 
 # --------- Config dataclasses ---------
 @dataclass
