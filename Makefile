@@ -45,17 +45,18 @@ kb-index: install
 memory-index: install
 	$(RUN) app/indexing/build_memory_index.py --memory memory --persist vectorstores/memory --collection memory
 
-.PHONY: ensure-stores
-ensure-stores: install
-	@if [ ! -d vectorstores/prosody ] || [ -z "$$(ls -A vectorstores/prosody 2>/dev/null)" ]; then \
-	  echo "[INIT] Building Prosody KB index..."; \
-	  $(RUN) app/indexing/build_kb_index.py --source kb/prosody_corpus --persist vectorstores/prosody --collection prosody; \
-	fi; \
-	if [ ! -d vectorstores/memory ] || [ -z "$$(ls -A vectorstores/memory 2>/dev/null)" ]; then \
-	  echo "[INIT] Building User Memory index..."; \
-	  $(RUN) app/indexing/build_memory_index.py --memory memory --persist vectorstores/memory --collection memory; \
-	fi; \
-	echo "[OK] Vectorstores ready."
+.PHONY: dc-ensure-stores
+dc-ensure-stores:
+	docker compose exec app bash -lc "\
+	  if [ ! -d vectorstores/prosody ] || [ -z \"$$ (ls -A vectorstores/prosody 2>/dev/null)\" ]; then \
+	    echo '[INIT] Building Prosody KB index...'; \
+	    python app/indexing/build_kb_index.py --source kb/prosody_corpus --persist vectorstores/prosody --collection prosody; \
+	  fi; \
+	  if [ ! -d vectorstores/memory ] || [ -z \"$$ (ls -A vectorstores/memory 2>/dev/null)\" ]; then \
+	    echo '[INIT] Building User Memory index...'; \
+	    python app/indexing/build_memory_index.py --memory memory --persist vectorstores/memory --collection memory; \
+	  fi; \
+	  echo '[OK] Vectorstores ready.'"
 
 # ====== Run Scripts ======
 .PHONY: run-demo
@@ -85,6 +86,10 @@ clean:
 dc-build:
 	docker compose build
 
+.PHONY: dc-install
+dc-install:
+	docker compose exec app bash -lc "pip install --no-cache-dir -r requirements.txt"
+
 .PHONY: dc-up
 dc-up:
 	docker compose up -d
@@ -100,9 +105,9 @@ dc-logs:
 .PHONY: dc-mf
 dc-mf:
 	@if [ -n "$(FEEDBACK)" ]; then \
-	  docker compose run --rm -e OPENAI_API_KEY -e PYTHONUNBUFFERED=1 app bash -lc \
-	    "pip install -r requirements.txt && python scripts/run_demo.py --thread-id '$(THREAD)' --feedback '$(FEEDBACK)' --print-state"; \
+	  docker compose exec app bash -lc "\
+	    python scripts/run_demo.py --thread-id '$(THREAD)' --feedback '$(FEEDBACK)' --print-state"; \
 	else \
-	  docker compose run --rm -e OPENAI_API_KEY -e PYTHONUNBUFFERED=1 app bash -lc \
-	    "pip install -r requirements.txt && python scripts/run_demo.py --thread-id '$(THREAD)' --brief '$(BRIEF)' --print-state"; \
+	  docker compose exec app bash -lc "\
+	    python scripts/run_demo.py --thread-id '$(THREAD)' --brief '$(BRIEF)' --print-state"; \
 	fi
