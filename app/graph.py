@@ -1,6 +1,7 @@
 from __future__ import annotations
 from typing import Any, Dict
 from langgraph.graph import StateGraph, END
+import sqlite3
 from langgraph.checkpoint.sqlite import SqliteSaver
 from pathlib import Path
 
@@ -74,6 +75,6 @@ def build_graph_memory_fueled() -> Any:
     })
     g.add_edge("finalize", END)
 
-    Path("runs").mkdir(parents=True, exist_ok=True)
-    checkpointer = SqliteSaver.from_conn_string("sqlite:///runs/checkpoints.db")
+    conn = sqlite3.connect("runs/checkpoints.db", check_same_thread=False)
+    checkpointer = SqliteSaver(conn)
     return g.compile(checkpointer=checkpointer)
