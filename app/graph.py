@@ -2,6 +2,8 @@ from __future__ import annotations
 from typing import Any, Dict
 from langgraph.graph import StateGraph, END
 from langgraph.checkpoint.sqlite import SqliteSaver
+from pathlib import Path
+
 
 from app.state import AppState
 from app.nodes.bootstrap import bootstrap_node
@@ -21,6 +23,7 @@ from app.nodes.finalize import finalize_node
 
 def build_graph_memory_fueled() -> Any:
     g = StateGraph(AppState)
+    g.add_node("bootstrap", bootstrap_node)
     g.add_node("brief", brief_node)
     g.add_node("context_pack", context_pack_node)
     g.add_node("master_planner", master_planner_node)
@@ -71,5 +74,6 @@ def build_graph_memory_fueled() -> Any:
     })
     g.add_edge("finalize", END)
 
-    checkpointer = SqliteSaver("runs/checkpoints.db")
+    Path("runs").mkdir(parents=True, exist_ok=True)
+    checkpointer = SqliteSaver.from_conn_string("sqlite:///runs/checkpoints.db")
     return g.compile(checkpointer=checkpointer)
