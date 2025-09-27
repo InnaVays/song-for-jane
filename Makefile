@@ -111,3 +111,4 @@ dc-mf:
 	  docker compose exec app bash -lc "\
 	    python scripts/run_demo.py --thread-id '$(THREAD)' --brief '$(BRIEF)' --print-state"; \
 	fi
+

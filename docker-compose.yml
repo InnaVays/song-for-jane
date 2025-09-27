@@ -14,8 +14,8 @@ services:
       - ./vectorstores:/workspace/vectorstores
       - ./runs:/workspace/runs
       - ./outputs:/workspace/outputs
-      - ./memory:/workspace/memory
-      - ./kb:/workspace/kb
+      - ./app/kb:/workspace/kb   
+      - ./memory:/workspace/memory            
       - ./user_docs:/workspace/user_docs
     command: >
       bash -lc "pip install --no-cache-dir -r requirements.txt && tail -f /dev/null"
