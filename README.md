@@ -1,32 +1,84 @@
-# Jane – Personal AI Co-Author
+# Song-for-Jane — Memory-Fueled PaE (Branch the Context, Not the Plan)
 
-Jane is a AI assistant designed as a deeply personalized writing co-author.
-Unlike generic assistants, Jane adapts to your voice, keeps memory across sessions, and supports creative brainstorming, rewriting, and fact-finding — all in one place.
+A DIY lyric writer demo that builds rock-ballad stanzas with human-in-the-loop feedback, personal memory, and a single upfront plan.
+Key idea:
 
-## ✨ Core Modules
+PaE skeleton; the fuel at every step is personal memory, not a static plan.
 
-Jane routes every input into one of four modes:
+We branch the context, not the plan — cheap, adaptive, and easy to steer.
 
-- Brainstorm (jane/brainstorm/). Creative idea engine powered by multi-persona prompting and step-by-step reasoning. TRIZ principles (40 inventive patterns) will be plugged in later. Output: multiple fresh angles, hooks, and analogies for your draft or topic.
+## What it does
 
-- Rewrite (jane/rewrite/). Learns your style from previous drafts stored in memory. Two outputs per draft:
+1. Normalize your brief.
 
- - v1_style_mine – rewritten strictly in your personal style.
+2. Call a Large model once to produce a Master Plan (form, meter/rhyme, persona, beats), a Style Policy, and a Toolcard (how to use tools).
 
- - v2_style_improved – rewritten with recommended improvements.
+3. For each stanza, build two tiny A/B contexts (exploit vs. explore) from:
 
- Style retrieval: MongoDB Atlas Vector Search + LangChain.
+- user Memory (likes, taboos, exemplars),
 
- Future: LoRA fine-tuning (PEFT / Unsloth) via lorafy() hook.
+- User Docs (lexicon & imagery),
 
-- Research (jane/research/). Hybrid fact-gathering pipeline: First checks personal memory (vector DB). Then expands to web search (Tavily / SerpAPI). Combines results into bullet points with clear source labels: history (from your past notes) found (from the web). Uses LangChain RetrievalQA for orchestration.
+- Prosody KB (rules/pitfalls).
 
-- Other (jane/other/) / Lightweight free-chat mode. Replies conversationally while nudging you back toward one of the three main modules.
+4. Pick A or B (cheap selector), write with a Medium model, apply zero-token guards (taboo/rhyme/length), optionally a Small patch.
 
-## 🚀 Quickstart
+5. Show to user → take feedback → ingest → embed → upsert → refresh preferences → next stanza.
+
+6. Finalize when stanza_count is reached.
+
+**One good plan supports many generations. Variety comes from context diversification, not costly re-planning.**
+
+## Requirements
+
+Python 3.10+ (3.11 recommended)
+
+An OpenAI API key (.env)
+
+## Quickstart (local)
+```
+# install deps & ensure indexes
+make install
+make ensure-stores
+
+# start a session (will pause after showing stanza)
+make run-mf THREAD=mf-demo-001 BRIEF="Write a night-train rock ballad with wet asphalt and a hard choice."
+
+# continue same session with feedback (A/B or notes)
+make run-mf THREAD=mf-demo-001 FEEDBACK="A; faster tempo; add image: neon puddles; ban: 'forever yours'"
+make run-mf THREAD=mf-demo-001 FEEDBACK="ACCEPT"
+``
+
+The loop repeats until stanza_count → the final text prints.
+
+** Add your data**
+
+User Docs: put .txt / .md (≥ few hundred words recommended) in user_docs/.
+
+Rebuild or auto-build on first run:
 
 ```
-git clone https://github.com/InnaVays/song-for-jane.git
-cd song-for-jane
-pip install -r requirements.txt
+make ensure-stores
+# or explicitly:
+python app/indexing/build_kb_index.py --source kb/prosody_corpus --persist vectorstores/prosody --collection prosody
+python app/indexing/build_memory_index.py --memory memory --persist vectorstores/memory --collection memory
 ```
+
+## Configuration & model budget
+
+- Large: used once at master_planner.
+
+- Medium: writer drafts.
+
+- Small: brief/context compression, A/B, feedback, patches.
+
+
+## Why this approach
+
+- Cheap: one Large call; the rest small/medium + guards.
+
+- Personal: every step uses fresh memory/docs context.
+
+- Controllable: user is the critic; immediate ingestion reshapes the very next step.
+
+- Robust: plan is stable; we branch the context, not the plan.
