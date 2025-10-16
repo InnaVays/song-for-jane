@@ -51,7 +51,7 @@ make run-mf THREAD=mf-demo-001 FEEDBACK="ACCEPT"
 
 The loop repeats until stanza_count → the final text prints.
 
-** Add your data**
+**Add your data**
 
 User Docs: put .txt / .md (≥ few hundred words recommended) in user_docs/.
 
