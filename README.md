@@ -47,7 +47,7 @@ make run-mf THREAD=mf-demo-001 BRIEF="Write a night-train rock ballad with wet a
 # continue same session with feedback (A/B or notes)
 make run-mf THREAD=mf-demo-001 FEEDBACK="A; faster tempo; add image: neon puddles; ban: 'forever yours'"
 make run-mf THREAD=mf-demo-001 FEEDBACK="ACCEPT"
-``
+```
 
 The loop repeats until stanza_count → the final text prints.
 
