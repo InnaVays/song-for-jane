@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  app:
+    image: python:3.11-slim
+    container_name: jane-bard-app
+    working_dir: /workspace
+    env_file:
+      - .env
+    environment:
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - ./:/workspace
+      - ./vectorstores:/workspace/vectorstores
+      - ./runs:/workspace/runs
+      - ./outputs:/workspace/outputs
+      - ./memory:/workspace/memory
+      - ./kb:/workspace/kb
+      - ./user_docs:/workspace/user_docs
+    command: >
+      bash -lc "pip install --no-cache-dir -r requirements.txt && tail -f /dev/null"
+    tty: true
+    stdin_open: true
