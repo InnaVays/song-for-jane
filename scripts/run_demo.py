@@ -15,7 +15,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 # Import the Memory-Fueled graph
-from app.graph_memory_fueled import build_graph_memory_fueled
+from app.graph import build_graph_memory_fueled
 
 
 def parse_args() -> argparse.Namespace:
